@@ -6,6 +6,8 @@ Personal portfolio website for Dereje Solomon, Full-Stack Developer and Writer.
 
 ## Features
 
+- Evidence-led engineering case studies for selected projects (no invented performance metrics)
+
 - Responsive Swiss editorial minimalist design with mobile navigation
 - Profile, about, technical skills, projects, education, languages, and contact details
 - Downloadable CV PDF in `assets/Dereje_Solomon_CV.pdf`
