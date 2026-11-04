@@ -7,6 +7,13 @@ Personal portfolio website for Dereje Solomon, Full-Stack Developer and Writer.
 ## Features
 
 - Evidence-led engineering case studies for selected projects (no invented performance metrics)
+- High-level architecture diagrams for NEXORAS and BARNOOTAAI360
+- Technical insight articles with expandable reading notes
+- Skills evidence groupings that avoid invented proficiency percentages
+- Hire-me / collaboration section and a recommendation area reserved for genuine testimonials
+- English / Afaan Oromoo language toggle for key navigation and introduction copy
+- Light / dark theme toggle with a locally saved preference
+- Privacy-first local activity counters (stored only in the visitor's browser; not global analytics)
 
 - Responsive Swiss editorial minimalist design with mobile navigation
 - Profile, about, technical skills, projects, education, languages, and contact details
