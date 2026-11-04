@@ -2,7 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://bekan25.github.io/">
+<meta property="og:image" content="https://bekan25.github.io/assets/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dereje Solomon | Full-Stack Developer & Writer">
+<meta name="twitter:description" content="Full-Stack Developer and Writer building practical software and AI-supported learning solutions.">
 <meta name="theme-color" content="#101b31">
 <meta name="description" content="Dereje Solomon — Full-Stack Developer and Writer, building practical web applications and AI-powered learning solutions in Ethiopia.">
 <meta property="og:type" content="website">
@@ -121,14 +128,44 @@ footer a{color:#5bc8ff!important}
 .contact-item:hover .contact-icon{background:linear-gradient(110deg,#078cf5,#7650ee);color:#fff;box-shadow:0 0 20px rgba(40,184,255,.28)}
 @media(max-width:600px){.contact-item{min-height:90px}}
 
+
+/* CV, GitHub activity and real contact form */
+.github-section{background:transparent!important}
+.github-intro{color:var(--muted);max-width:680px;margin:-18px 0 25px}
+.github-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.github-stats a,.github-live{display:block;text-decoration:none;background:linear-gradient(145deg,#0e2242,#08152c);border:1px solid var(--line);border-radius:16px;padding:20px;color:var(--text)}
+.github-stats strong{display:block;font:800 24px Manrope,sans-serif;color:#55c7ff}
+.github-stats span{display:block;color:var(--muted);font-size:12px;margin-top:5px}
+.github-live{padding:22px}
+.github-live-head{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.github-live-head h3{margin:0;color:#fff;font-size:17px}
+.github-live-head a{color:#55c7ff;font-size:12px;font-weight:800;text-decoration:none}
+.github-loading,.github-error{color:var(--muted);font-size:13px}
+.github-event{display:flex;gap:13px;padding:14px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.github-event:last-child{border-bottom:0}
+.github-event-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#102b50;color:#5bc8ff;flex:none}
+.github-event strong{color:#edf5ff;font-size:13px}
+.github-event p{margin:3px 0;color:var(--muted);font-size:12px}
+.github-event time{color:#7892b3;font-size:11px}
+.contact-form{max-width:760px;margin:32px 0 0;padding:25px;border:1px solid var(--line);border-radius:18px;background:#07152c}
+.contact-form h3{margin:0 0 5px;color:#fff;font-size:20px}
+.contact-form>p{color:var(--muted);font-size:12px;margin:0 0 18px}
+.contact-form label{display:block;color:#cfe2fa;font-size:12px;font-weight:700;margin-bottom:14px}
+.contact-form input,.contact-form textarea{display:block;width:100%;margin-top:7px;padding:12px 13px;border-radius:10px;border:1px solid #284a76;background:#091b37;color:#fff;font:inherit;font-size:13px}
+.contact-form input:focus,.contact-form textarea:focus{outline:2px solid #28b8ff;outline-offset:2px}
+.contact-form textarea{resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-form button{cursor:pointer}
+.contact-form .form-note{font-size:11px;margin:12px 0 0;color:#8fa6c4}
+@media(max-width:600px){.github-stats,.form-row{grid-template-columns:1fr}.github-live-head{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
 <body>
-<nav><div class="wrap nav-inner"><a class="brand" href="#top">D<span>.</span>SOLOMON</a><button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false">☰</button><ul class="nav-links" id="navLinks"><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#education">Education</a></li><li><a class="hire" href="#contact">Contact me</a></li></ul></div></nav>
+<nav><div class="wrap nav-inner"><a class="brand" href="#top">D<span>.</span>SOLOMON</a><button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false">☰</button><ul class="nav-links" id="navLinks"><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a><a href="#github-activity">GitHub</a></li><li><a href="#education">Education</a></li><li><a class="hire" href="#contact">Contact me</a></li></ul></div></nav>
 <main id="top">
 <div class="wrap hero">
-<div><div class="eyebrow"><span class="dot"></span> Open to remote opportunities</div><h1>Dereje <span>Solomon</span></h1><div class="roles"><span class="role">Full-Stack Developer</span><span class="role">Writer</span><span class="role">Computer Science Student</span></div><p class="lead">I’m a fourth-year Computer Science student at Unity University, passionate about building useful software, web applications, and AI-supported learning experiences. I enjoy turning real problems into clear, practical digital solutions.</p><div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><a class="btn secondary" href="mailto:derejesolomon363@gmail.com">Get in touch</a></div></div>
-<aside class="profile-card"><div class="avatar"><img class="profile-photo" src="assets/profile.jpg" alt="Portrait of Dereje Solomon"></div><h2>Dereje Solomon</h2><p class="sub">Full-Stack Developer | Writer</p><div class="mini-line"></div><div class="facts"><div class="fact"><strong>04</strong><span>University year</span></div><div class="fact"><strong>03</strong><span>Languages</span></div><div class="fact"><strong>05+</strong><span>Projects & concepts</span></div><div class="fact"><strong>2025</strong><span>Udacity certificate</span></div></div></aside>
+<div><div class="eyebrow"><span class="dot"></span> Open to remote opportunities</div><h1>Dereje <span>Solomon</span></h1><div class="roles"><span class="role">Full-Stack Developer</span><span class="role">Writer</span><span class="role">Computer Science Student</span></div><p class="lead">I’m a fourth-year Computer Science student at Unity University, passionate about building useful software, web applications, and AI-supported learning experiences. I enjoy turning real problems into clear, practical digital solutions.</p><div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><a class="btn secondary" href="assets/Dereje_Solomon_CV.pdf" download>Download CV ↓</a><a class="btn secondary" href="mailto:derejesolomon363@gmail.com">Get in touch</a></div></div>
+<aside class="profile-card"><div class="avatar"><img class="profile-photo" loading="eager" src="assets/profile.jpg" alt="Portrait of Dereje Solomon" width="600" height="700" fetchpriority="high" decoding="async"></div><h2>Dereje Solomon</h2><p class="sub">Full-Stack Developer | Writer</p><div class="mini-line"></div><div class="facts"><div class="fact"><strong>04</strong><span>University year</span></div><div class="fact"><strong>03</strong><span>Languages</span></div><div class="fact"><strong>05+</strong><span>Projects & concepts</span></div><div class="fact"><strong>2025</strong><span>Udacity certificate</span></div></div></aside>
 </div>
 <section class="about" id="about"><div class="wrap"><div class="section-kicker">About me</div><h2 class="section-title">Curious mind. Practical work.<br><span>Purposeful technology.</span></h2><div class="about-grid"><div class="about-copy"><p>I’m a fourth-year Computer Science student at Unity University in Addis Ababa, Ethiopia. My interests include full-stack development, software engineering, artificial intelligence, databases, and technology that solves everyday problems.</p><p>I enjoy learning by building. My project work includes community-platform concepts, digital learning tools, and web-based management and commerce applications. I’m also a writer who values clear communication and sharing useful knowledge.</p><p>I’m continuously improving my engineering skills and looking for opportunities to contribute to collaborative teams, internships, freelance projects, and remote software roles.</p></div><div class="focus"><h3>What I focus on</h3><p>Building reliable and useful digital products through continuous learning.</p><ul><li>Full-stack web application development</li><li>REST APIs, databases, and backend systems</li><li>AI-supported and multilingual learning tools</li><li>Problem-solving and maintainable code</li><li>Technical writing and communication</li></ul></div></div></div></section>
 <section class="skills" id="skills"><div class="wrap"><div class="section-kicker">Technical toolkit</div><h2 class="section-title">Skills & <span>technologies</span></h2><div class="skill-grid">
@@ -151,6 +188,7 @@ footer a{color:#5bc8ff!important}
 <article class="project"><div class="project-head"><span class="project-num">08</span><div class="project-icon">🎓</div><h3>TMS Core</h3><p>Training management client</p></div><div class="project-body"><span class="status build">In development</span><p>A training-management system project with an Angular client interface. The repository includes the client application; its API is referenced as a separate submodule.</p><div class="stack"><span>Angular</span><span>TypeScript</span><span>Web application</span></div><a class="project-link" href="https://github.com/bekan25/tmscore" target="_blank" rel="noopener">View repository ↗</a></div></article>
 <article class="project"><div class="project-head"><span class="project-num">09</span><div class="project-icon">🚢</div><h3>Ethiopian Import Customs System</h3><p>Customs and shipment management</p></div><div class="project-body"><span class="status build">In development</span><p>A customs-management project repository containing a smart search concept for declarations, shipments, importers, documents, devices, and tracking, plus payment-lifecycle quality checks.</p><div class="stack"><span>Customs workflow</span><span>Smart search</span><span>API</span><span>Docker</span><span>CI testing</span></div><a class="project-link" href="https://github.com/bekan25/Esgms-customs/tree/main/ethiopian-import-customs" target="_blank" rel="noopener">View project folder ↗</a></div></article>
 </div></div></section>
+<section class="github-section" id="github-activity"><div class="wrap"><div class="section-kicker">Open-source footprint</div><h2 class="section-title">GitHub <span>activity</span></h2><p class="github-intro">A live view of public repositories and recent public activity from my GitHub account.</p><div class="github-stats"><a href="https://github.com/bekan25?tab=repositories" target="_blank" rel="noopener"><strong id="repo-count">—</strong><span>Public repositories</span></a><a href="https://github.com/bekan25" target="_blank" rel="noopener"><strong>bekan25</strong><span>GitHub profile</span></a><a href="https://github.com/bekan25?tab=activity" target="_blank" rel="noopener"><strong>Recent work</strong><span>View full activity</span></a></div><div class="github-live"><div class="github-live-head"><h3>Latest public activity</h3><a href="https://github.com/bekan25" target="_blank" rel="noopener">View GitHub ↗</a></div><div id="github-events" aria-live="polite"><p class="github-loading">Loading public GitHub activity…</p></div></div></div></section>
 <section class="education" id="education"><div class="wrap"><div class="section-kicker">Learning journey</div><h2 class="section-title">Education & <span>credentials</span></h2><div class="edu-grid"><article class="edu"><small>Unity University · Ethiopia</small><h3>BSc Computer Science</h3><p>Fourth-year student. Coursework includes programming, data structures, algorithms, database systems, and software engineering.</p><span class="label">Currently studying</span></article><article class="edu"><small>Udacity</small><h3>Programming / Web Development</h3><p>Certificate earned in 2025, reflecting continued learning in programming and web development.</p><span class="label">2025 certificate</span></article></div></div></section>
 <section class="languages"><div class="wrap"><div class="section-kicker">Communication</div><h2 class="section-title">Languages I <span>speak</span></h2><div class="language-grid"><div class="language"><strong>Afaan Oromoo</strong><span>Native</span></div><div class="language"><strong>Amharic</strong><span>Fluent</span></div><div class="language"><strong>English</strong><span>Working proficiency</span></div></div></div></section>
 <section class="contact" id="contact"><div class="wrap"><div class="section-kicker">Let’s connect</div><h2 class="section-title">Have a project or<br>opportunity in <span>mind?</span></h2><p class="contact-intro">I’m open to relevant remote opportunities, freelance work, internships, and collaborations. The best way to reach me is by email or Telegram.</p><div class="contact-grid">
@@ -161,11 +199,46 @@ footer a{color:#5bc8ff!important}
 <a class="contact-item" href="https://www.linkedin.com/in/dereje-solomon-9a6230370" target="_blank" rel="noopener"><span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-7m0 3a3 3 0 0 1 6 0v4"/></svg></span><small>LinkedIn</small><strong>Dereje Solomon</strong></a>
 <a class="contact-item" href="https://t.me/counqer1777" target="_blank" rel="noopener"><span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span><small>Telegram · Personal</small><strong>@counqer1777</strong></a>
 <a class="contact-item" href="https://t.me/deratechofficial" target="_blank" rel="noopener"><span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span><small>Telegram · Channel</small><strong>@deratechofficial</strong></a>
-</div><p class="contact-note">Based in Addis Ababa, Ethiopia · Available for remote collaboration.</p></div></section>
+</div>
+<form class="contact-form" action="https://formsubmit.co/derejesolomon363@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="New portfolio message — Dereje Solomon">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_template" value="table">
+<h3>Send me a message</h3><p>Your message will be delivered to my email after the one-time FormSubmit activation.</p>
+<div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100" placeholder="Your full name"></label><label>Your email<input type="email" name="email" autocomplete="email" required maxlength="160" placeholder="you@example.com"></label></div>
+<label>Subject<input name="subject" required maxlength="150" placeholder="What would you like to discuss?"></label>
+<label>Message<textarea name="message" rows="5" required maxlength="5000" placeholder="Write your message here…"></textarea></label>
+<button class="btn primary" type="submit">Send message ↗</button><p class="form-note">Please do not include passwords or sensitive personal information.</p>
+</form><p class="contact-note">Based in Addis Ababa, Ethiopia · Available for remote collaboration.</p></div></section>
 </main>
 <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Dereje Solomon. All rights reserved.</span><span>Designed with care · <a href="#top">Back to top ↑</a></span></div></footer>
 <script>
 const menu=document.getElementById('menu');const nav=document.getElementById('navLinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));document.getElementById('year').textContent=new Date().getFullYear();
+
+async function loadGithubActivity(){
+ const events=document.getElementById('github-events');
+ const count=document.getElementById('repo-count');
+ try{
+  const [reposRes,eventsRes]=await Promise.all([
+   fetch('https://api.github.com/users/bekan25/repos?per_page=100&sort=updated'),
+   fetch('https://api.github.com/users/bekan25/events/public?per_page=8')
+  ]);
+  if(!reposRes.ok||!eventsRes.ok) throw new Error('GitHub API temporarily unavailable');
+  const repos=await reposRes.json(), items=await eventsRes.json();
+  count.textContent=Array.isArray(repos)?repos.length:'—';
+  if(!Array.isArray(items)||!items.length){events.innerHTML='<p class="github-loading">No recent public activity is available yet. Visit my GitHub profile for repositories.</p>';return;}
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const verbs={PushEvent:'pushed code to',CreateEvent:'created',PullRequestEvent:'opened a pull request in',IssuesEvent:'updated an issue in',WatchEvent:'starred',ForkEvent:'forked',PublicEvent:'made public'};
+  events.innerHTML=items.slice(0,7).map(e=>{
+   const repo=e.repo?.name||'a repository',verb=verbs[e.type]||'worked on';
+   const detail=e.payload?.commits?.length?e.payload.commits.length+' commit(s)':e.payload?.action||'';
+   const date=new Date(e.created_at);
+   return '<article class="github-event"><span class="github-event-icon" aria-hidden="true">⌘</span><div><strong>'+esc(verb)+' <a href="https://github.com/'+encodeURI(repo)+'" target="_blank" rel="noopener">'+esc(repo)+'</a></strong><p>'+esc(detail)+'</p><time datetime="'+date.toISOString()+'">'+date.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})+'</time></div></article>';
+  }).join('');
+ }catch(error){events.innerHTML='<p class="github-error">Live GitHub data could not be loaded right now. <a href="https://github.com/bekan25" target="_blank" rel="noopener">Open GitHub profile ↗</a></p>';count.textContent='—';}
+}
+loadGithubActivity();
+
 </script>
 </body>
 </html>
