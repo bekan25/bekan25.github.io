@@ -6,7 +6,7 @@ Personal portfolio website for Dereje Solomon, Full-Stack Developer and Writer.
 
 ## Features
 
-- Responsive premium dark design with mobile navigation
+- Responsive Swiss editorial minimalist design with mobile navigation
 - Profile, about, technical skills, projects, education, languages, and contact details
 - Downloadable CV PDF in `assets/Dereje_Solomon_CV.pdf`
 - Public GitHub repository cards and recent public activity loaded from the GitHub REST API
