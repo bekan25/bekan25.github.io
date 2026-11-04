@@ -10,7 +10,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Dereje Solomon | Full-Stack Developer & Writer">
 <meta name="twitter:description" content="Full-Stack Developer and Writer building practical software and AI-supported learning solutions.">
-<meta name="theme-color" content="#101b31">
+<meta name="theme-color" content="#050b19">
+<meta name="author" content="Dereje Solomon">
+<meta name="color-scheme" content="dark">
+<meta property="og:locale" content="en_US">
+<meta property="og:image:alt" content="Dereje Solomon — Full-Stack Developer and Writer">
+<meta name="twitter:site" content="@bekan25">
+<link rel="manifest" href="/manifest.webmanifest">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Dereje Solomon","url":"https://bekan25.github.io/","image":"https://bekan25.github.io/assets/profile.jpg","jobTitle":"Full-Stack Developer","description":"Full-Stack Developer and Writer building practical software and AI-supported learning solutions.","email":"mailto:derejesolomon363@gmail.com","sameAs":["https://github.com/bekan25","https://www.linkedin.com/in/dereje-solomon-9a6230370","https://t.me/counqer1777"]}</script>
 <meta name="description" content="Dereje Solomon — Full-Stack Developer and Writer, building practical web applications and AI-powered learning solutions in Ethiopia.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dereje Solomon | Full-Stack Developer">
@@ -161,11 +168,26 @@ footer a{color:#5bc8ff!important}
 
 .skip-link{position:absolute;left:12px;top:-60px;z-index:1000;padding:10px 14px;background:#fff;color:#06132b;border-radius:8px;font-weight:800}.skip-link:focus{top:10px}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #55c7ff!important;outline-offset:3px!important}
+
+/* Professional writing and GitHub repository cards */
+.github-repositories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:20px 0 26px}
+.repo-card,.writing-card{min-width:0;padding:20px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,#0e2242,#08152c)}
+.repo-card h3,.writing-card h3{margin:0 0 8px;color:#f4f8ff;font-size:16px;overflow-wrap:anywhere}
+.repo-card p,.writing-card p{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.7}
+.repo-meta{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 13px;color:#8eabc9;font-size:11px}
+.repo-card a,.writing-card a{color:#55c7ff;font-size:12px;font-weight:800;text-decoration:none}
+.repo-card a:hover,.writing-card a:hover{text-decoration:underline}
+.writing{background:transparent!important}
+.writing-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.writing-card{padding:26px;border-radius:20px}
+.writing-tag{display:inline-block;margin-bottom:13px;color:#62caff;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:850px){.github-repositories{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.github-repositories,.writing-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav><div class="wrap nav-inner"><a class="brand" href="#top">D<span>.</span>SOLOMON</a><button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button><ul class="nav-links" id="navLinks"><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#github-activity">GitHub</a></li><li><a href="#education">Education</a></li><li><a href="assets/Dereje_Solomon_CV.pdf" download>Download CV</a></li><li><a class="hire" href="#contact">Contact me</a></li></ul></div></nav>
+<nav><div class="wrap nav-inner"><a class="brand" href="#top">D<span>.</span>SOLOMON</a><button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button><ul class="nav-links" id="navLinks"><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#github-activity">GitHub</a></li><li><a href="#writing">Writing</a></li><li><a href="#education">Education</a></li><li><a href="assets/Dereje_Solomon_CV.pdf" download>Download CV</a></li><li><a class="hire" href="#contact">Contact me</a></li></ul></div></nav>
 <main id="main-content" tabindex="-1">
 <div class="wrap hero">
 <div><div class="eyebrow"><span class="dot"></span> Open to remote opportunities</div><h1>Dereje <span>Solomon</span></h1><div class="roles"><span class="role">Full-Stack Developer</span><span class="role">Writer</span><span class="role">Computer Science Student</span></div><p class="lead">I’m a fourth-year Computer Science student at Unity University, passionate about building useful software, web applications, and AI-supported learning experiences. I enjoy turning real problems into clear, practical digital solutions.</p><div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><a class="btn secondary" href="assets/Dereje_Solomon_CV.pdf" download>Download CV ↓</a><a class="btn secondary" href="mailto:derejesolomon363@gmail.com">Get in touch</a></div></div>
@@ -192,7 +214,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <article class="project"><div class="project-head"><span class="project-num">08</span><div class="project-icon">🎓</div><h3>TMS Core</h3><p>Training management client</p></div><div class="project-body"><span class="status build">In development</span><p>A training-management system project with an Angular client interface. The repository includes the client application; its API is referenced as a separate submodule.</p><div class="stack"><span>Angular</span><span>TypeScript</span><span>Web application</span></div><a class="project-link" href="https://github.com/bekan25/tmscore" target="_blank" rel="noopener">View repository ↗</a></div></article>
 <article class="project"><div class="project-head"><span class="project-num">09</span><div class="project-icon">🚢</div><h3>Ethiopian Import Customs System</h3><p>Customs and shipment management</p></div><div class="project-body"><span class="status build">In development</span><p>A customs-management project repository containing a smart search concept for declarations, shipments, importers, documents, devices, and tracking, plus payment-lifecycle quality checks.</p><div class="stack"><span>Customs workflow</span><span>Smart search</span><span>API</span><span>Docker</span><span>CI testing</span></div><a class="project-link" href="https://github.com/bekan25/Esgms-customs/tree/main/ethiopian-import-customs" target="_blank" rel="noopener">View project folder ↗</a></div></article>
 </div></div></section>
-<section class="github-section" id="github-activity"><div class="wrap"><div class="section-kicker">Open-source footprint</div><h2 class="section-title">GitHub <span>activity</span></h2><p class="github-intro">A live view of public repositories and recent public activity from my GitHub account.</p><div class="github-stats"><a href="https://github.com/bekan25?tab=repositories" target="_blank" rel="noopener"><strong id="repo-count">—</strong><span>Public repositories</span></a><a href="https://github.com/bekan25" target="_blank" rel="noopener"><strong>bekan25</strong><span>GitHub profile</span></a><a href="https://github.com/bekan25?tab=activity" target="_blank" rel="noopener"><strong>Recent work</strong><span>View full activity</span></a></div><div class="github-live"><div class="github-live-head"><h3>Latest public activity</h3><a href="https://github.com/bekan25" target="_blank" rel="noopener">View GitHub ↗</a></div><div id="github-events" aria-live="polite"><p class="github-loading">Loading public GitHub activity…</p></div></div></div></section>
+<section class="github-section" id="github-activity"><div class="wrap"><div class="section-kicker">Open-source footprint</div><h2 class="section-title">GitHub <span>activity</span></h2><p class="github-intro">A live view of public repositories and recent public activity from my GitHub account.</p><div class="github-stats"><a href="https://github.com/bekan25?tab=repositories" target="_blank" rel="noopener"><strong id="repo-count">—</strong><span>Public repositories</span></a><a href="https://github.com/bekan25" target="_blank" rel="noopener"><strong>bekan25</strong><span>GitHub profile</span></a><a href="https://github.com/bekan25?tab=activity" target="_blank" rel="noopener"><strong>Recent work</strong><span>View full activity</span></a></div><div class="github-repositories" id="github-repositories" aria-live="polite"><p class="github-loading">Loading public repositories…</p></div><div class="github-live"><div class="github-live-head"><h3>Latest public activity</h3><a href="https://github.com/bekan25" target="_blank" rel="noopener">View GitHub ↗</a></div><div id="github-events" aria-live="polite"><p class="github-loading">Loading public GitHub activity…</p></div></div></div></section>
+<section class="writing" id="writing"><div class="wrap"><div class="section-kicker">Ideas & communication</div><h2 class="section-title">Writing with <span>purpose</span></h2><div class="writing-grid"><article class="writing-card"><span class="writing-tag">Book project · In progress</span><h3>MURANNOO: HUMNA KEESSA KEE DAMMAQSI</h3><p>An Afaan Oromoo self-development book about self-awareness, discipline, purposeful goals, and taking consistent action.</p><a href="https://t.me/deratechofficial" target="_blank" rel="noopener">Follow my writing updates ↗</a></article><article class="writing-card"><span class="writing-tag">Technology community</span><h3>Dera Tech Hub</h3><p>Practical technology updates, programming, AI tools, scholarships, freelance opportunities, and learning resources for the community.</p><a href="https://t.me/deratechofficial" target="_blank" rel="noopener">Visit Telegram channel ↗</a></article></div></div></section>
 <section class="education" id="education"><div class="wrap"><div class="section-kicker">Learning journey</div><h2 class="section-title">Education & <span>credentials</span></h2><div class="edu-grid"><article class="edu"><small>Unity University · Ethiopia</small><h3>BSc Computer Science</h3><p>Fourth-year student. Coursework includes programming, data structures, algorithms, database systems, and software engineering.</p><span class="label">Currently studying</span></article><article class="edu"><small>Udacity</small><h3>Programming / Web Development</h3><p>Certificate earned in 2025, reflecting continued learning in programming and web development.</p><span class="label">2025 certificate</span></article></div></div></section>
 <section class="languages"><div class="wrap"><div class="section-kicker">Communication</div><h2 class="section-title">Languages I <span>speak</span></h2><div class="language-grid"><div class="language"><strong>Afaan Oromoo</strong><span>Native</span></div><div class="language"><strong>Amharic</strong><span>Fluent</span></div><div class="language"><strong>English</strong><span>Working proficiency</span></div></div></div></section>
 <section class="contact" id="contact"><div class="wrap"><div class="section-kicker">Let’s connect</div><h2 class="section-title">Have a project or<br>opportunity in <span>mind?</span></h2><p class="contact-intro">I’m open to relevant remote opportunities, freelance work, internships, and collaborations. The best way to reach me is by email or Telegram.</p><div class="contact-grid">
@@ -217,32 +240,108 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </main>
 <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Dereje Solomon. All rights reserved.</span><span>Designed with care · <a href="#top">Back to top ↑</a></span></div></footer>
 <script>
-const menu=document.getElementById('menu');const nav=document.getElementById('navLinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));document.getElementById('year').textContent=new Date().getFullYear();
-
-async function loadGithubActivity(){
- const events=document.getElementById('github-events');
- const count=document.getElementById('repo-count');
- try{
-  const [reposRes,eventsRes]=await Promise.all([
-   fetch('https://api.github.com/users/bekan25/repos?per_page=100&sort=updated'),
-   fetch('https://api.github.com/users/bekan25/events/public?per_page=8')
-  ]);
-  if(!reposRes.ok||!eventsRes.ok) throw new Error('GitHub API temporarily unavailable');
-  const repos=await reposRes.json(), items=await eventsRes.json();
-  count.textContent=Array.isArray(repos)?repos.length:'—';
-  if(!Array.isArray(items)||!items.length){events.innerHTML='<p class="github-loading">No recent public activity is available yet. Visit my GitHub profile for repositories.</p>';return;}
-  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const verbs={PushEvent:'pushed code to',CreateEvent:'created',PullRequestEvent:'opened a pull request in',IssuesEvent:'updated an issue in',WatchEvent:'starred',ForkEvent:'forked',PublicEvent:'made public'};
-  events.innerHTML=items.slice(0,7).map(e=>{
-   const repo=e.repo?.name||'a repository',verb=verbs[e.type]||'worked on';
-   const detail=e.payload?.commits?.length?e.payload.commits.length+' commit(s)':e.payload?.action||'';
-   const date=new Date(e.created_at);
-   return '<article class="github-event"><span class="github-event-icon" aria-hidden="true">⌘</span><div><strong>'+esc(verb)+' <a href="https://github.com/'+encodeURI(repo)+'" target="_blank" rel="noopener">'+esc(repo)+'</a></strong><p>'+esc(detail)+'</p><time datetime="'+date.toISOString()+'">'+date.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})+'</time></div></article>';
-  }).join('');
- }catch(error){events.innerHTML='<p class="github-error">Live GitHub data could not be loaded right now. <a href="https://github.com/bekan25" target="_blank" rel="noopener">Open GitHub profile ↗</a></p>';count.textContent='—';}
+"use strict";
+const menu=document.getElementById("menu");
+const nav=document.getElementById("navLinks");
+if(menu&&nav){
+  menu.addEventListener("click",()=>{
+    const open=nav.classList.toggle("open");
+    menu.setAttribute("aria-expanded",String(open));
+    menu.setAttribute("aria-label",open?"Close navigation":"Open navigation");
+    menu.textContent=open?"×":"☰";
+  });
+  nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{
+    nav.classList.remove("open");
+    menu.setAttribute("aria-expanded","false");
+    menu.setAttribute("aria-label","Open navigation");
+    menu.textContent="☰";
+  }));
 }
-loadGithubActivity();
+const year=document.getElementById("year");
+if(year) year.textContent=String(new Date().getFullYear());
 
+const make=(tag,className,textValue)=>{
+  const node=document.createElement(tag);
+  if(className) node.className=className;
+  if(textValue!==undefined) node.textContent=String(textValue);
+  return node;
+};
+const safeDate=value=>{
+  const date=new Date(value);
+  return Number.isNaN(date.getTime())?null:date;
+};
+async function loadGithubData(){
+  const count=document.getElementById("repo-count");
+  const reposBox=document.getElementById("github-repositories");
+  const eventsBox=document.getElementById("github-events");
+  const api="https://api.github.com/users/bekan25";
+  const results=await Promise.allSettled([
+    fetch(api+"/repos?per_page=100&sort=updated",{headers:{Accept:"application/vnd.github+json"}}),
+    fetch(api+"/events/public?per_page=8",{headers:{Accept:"application/vnd.github+json"}})
+  ]);
+  const repoResult=results[0];
+  if(repoResult.status==="fulfilled"&&repoResult.value.ok){
+    const repos=await repoResult.value.json();
+    const publicRepos=Array.isArray(repos)?repos.filter(repo=>!repo.private&&!repo.fork):[];
+    if(count) count.textContent=String(publicRepos.length);
+    if(reposBox){
+      reposBox.replaceChildren();
+      publicRepos.sort((a,b)=>new Date(b.pushed_at||b.updated_at)-new Date(a.pushed_at||a.updated_at)).slice(0,6).forEach(repo=>{
+        const card=make("article","repo-card");
+        card.append(make("h3","",repo.name));
+        card.append(make("p","",repo.description||"Public repository — open the project to explore its source code."));
+        const meta=make("div","repo-meta");
+        meta.append(make("span","",repo.language||"Source code"));
+        meta.append(make("span","","★ "+(repo.stargazers_count||0)));
+        const updated=safeDate(repo.pushed_at||repo.updated_at);
+        if(updated) meta.append(make("span","","Updated "+updated.toLocaleDateString(undefined,{month:"short",year:"numeric"})));
+        card.append(meta);
+        const link=make("a","","View repository ↗");
+        link.href=repo.html_url;
+        link.target="_blank";
+        link.rel="noopener noreferrer";
+        card.append(link);
+        reposBox.append(card);
+      });
+      if(!publicRepos.length) reposBox.append(make("p","github-error","No public repositories were returned by GitHub."));
+    }
+  }else{
+    if(count) count.textContent="—";
+    if(reposBox) reposBox.replaceChildren(make("p","github-error","Public repositories are temporarily unavailable. Open the GitHub profile to browse projects."));
+  }
+  const eventResult=results[1];
+  if(eventResult.status==="fulfilled"&&eventResult.value.ok){
+    const items=await eventResult.value.json();
+    if(eventsBox){
+      eventsBox.replaceChildren();
+      const verbs={PushEvent:"pushed code to",CreateEvent:"created",PullRequestEvent:"opened a pull request in",IssuesEvent:"updated an issue in",WatchEvent:"starred",ForkEvent:"forked",PublicEvent:"made public"};
+      (Array.isArray(items)?items:[]).slice(0,7).forEach(event=>{
+        const row=make("article","github-event");
+        row.append(make("span","github-event-icon","⌘"));
+        const detail=make("div","");
+        const strong=make("strong","",verbs[event.type]||"worked on");
+        const repoName=event.repo&&event.repo.name?event.repo.name:"a repository";
+        strong.append(document.createTextNode(" "));
+        const anchor=make("a","",repoName);
+        anchor.href="https://github.com/"+repoName.split("/").map(encodeURIComponent).join("/");
+        anchor.target="_blank";anchor.rel="noopener noreferrer";
+        strong.append(anchor);detail.append(strong);
+        const commits=event.payload&&Array.isArray(event.payload.commits)?event.payload.commits.length:0;
+        detail.append(make("p","",commits?commits+" commit(s)":(event.payload&&event.payload.action)||"Public GitHub activity"));
+        const date=safeDate(event.created_at);
+        if(date){const time=make("time","",date.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}));time.dateTime=date.toISOString();detail.append(time);}
+        row.append(detail);eventsBox.append(row);
+      });
+      if(!eventsBox.children.length) eventsBox.append(make("p","github-loading","No recent public activity is available yet. Visit the GitHub profile for the latest work."));
+    }
+  }else if(eventsBox){
+    eventsBox.replaceChildren(make("p","github-error","Recent activity is temporarily unavailable. Open the GitHub profile to see current activity."));
+  }
+}
+loadGithubData().catch(()=>{
+  const box=document.getElementById("github-events");
+  if(box) box.textContent="GitHub data could not be loaded right now. Please visit github.com/bekan25.";
+});
 </script>
 </body>
 </html>
