@@ -2222,3 +2222,10 @@ html[data-theme="dark"] .analytics-card strong{
     background: #0b1020!important;
   }
 }
+
+
+/* Contact form actions and GitHub cache status */
+.form-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:6px}
+.form-actions .btn{min-height:46px}
+.github-cache-note{grid-column:1/-1;margin:0 0 8px;color:#9bb6d8;font-size:11px}
+@media(max-width:600px){.form-actions{align-items:stretch;flex-direction:column}.form-actions .btn{width:100%}}
