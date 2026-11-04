@@ -183,6 +183,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .writing-tag{display:inline-block;margin-bottom:13px;color:#62caff;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 @media(max-width:850px){.github-repositories{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.github-repositories,.writing-grid{grid-template-columns:1fr}}
+
+/* Final usability, form protection and motion refinements */
+.form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+.contact-form button{min-height:46px}
+.contact-form input:invalid:not(:placeholder-shown),.contact-form textarea:invalid:not(:placeholder-shown){border-color:#d97777}
+.contact-form input:focus-visible,.contact-form textarea:focus-visible{border-color:#55c7ff}
+::selection{background:#1e7cc9;color:#fff}
+html{scroll-padding-top:92px}
+@media(max-width:420px){.wrap{width:min(100% - 32px,1120px)}.contact-form{padding:18px}.github-stats{gap:9px}.github-stats a{padding:14px}}
 </style>
 </head>
 <body>
@@ -231,11 +240,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <input type="hidden" name="_subject" value="New portfolio message — Dereje Solomon">
 <input type="hidden" name="_captcha" value="true">
 <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://bekan25.github.io/message-sent.html">
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honeypot">
 <h3>Send me a message</h3><p>Your message will be delivered to my email after the one-time FormSubmit activation.</p>
-<div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100" placeholder="Your full name"></label><label>Your email<input type="email" name="email" autocomplete="email" required maxlength="160" placeholder="you@example.com"></label></div>
-<label>Subject<input name="subject" required maxlength="150" placeholder="What would you like to discuss?"></label>
-<label>Message<textarea name="message" rows="5" required maxlength="5000" placeholder="Write your message here…"></textarea></label>
-<button class="btn primary" type="submit">Send message ↗</button><p class="form-note">Please do not include passwords or sensitive personal information.</p>
+<div class="form-row"><label for="contact-name">Your name<input id="contact-name" name="name" autocomplete="name" required minlength="2" maxlength="100" placeholder="Your full name"></label><label for="contact-email">Your email<input id="contact-email" type="email" name="email" autocomplete="email" required maxlength="160" placeholder="you@example.com"></label></div>
+<label for="contact-subject">Subject<input id="contact-subject" name="subject" required minlength="3" maxlength="150" placeholder="What would you like to discuss?"></label>
+<label for="contact-message">Message<textarea id="contact-message" name="message" rows="5" required minlength="10" maxlength="5000" placeholder="Write your message here…"></textarea></label>
+<button class="btn primary" type="submit">Send message ↗</button><p class="form-note">Please do not include passwords or sensitive personal information. The form uses a spam-trap field and FormSubmit CAPTCHA.</p>
 </form><p class="contact-note">Based in Addis Ababa, Ethiopia · Available for remote collaboration.</p></div></section>
 </main>
 <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Dereje Solomon. All rights reserved.</span><span>Designed with care · <a href="#top">Back to top ↑</a></span></div></footer>
