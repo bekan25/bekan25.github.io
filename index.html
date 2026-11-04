@@ -52,6 +52,67 @@ footer{background:#030918;color:#a8bdd8}
 .btn.primary{background:linear-gradient(100deg,#078cf5,#673cff)}.btn.secondary{border-color:#278fe6;color:#eaf4ff}
 @media(max-width:850px){.hero{width:100%;padding:65px 24px}}
 @media(max-width:600px){.hero{padding:55px 16px}.avatar{height:260px}.nav-links{background:#071329}.nav-links a{color:#eef5ff}}
+
+/* ===== Premium portfolio refresh ===== */
+:root{--bg:#050b19;--surface:#0b1730;--surface2:#102142;--text:#edf5ff;--muted:#a9bad3;--line:rgba(117,169,232,.19);--accent:#28b8ff;--accent2:#8b5cf6;--glow:rgba(30,144,255,.25)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:radial-gradient(ellipse at 80% 5%,rgba(34,100,190,.16),transparent 35%),var(--bg);color:var(--text);font-family:Inter,"DM Sans",sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(102,157,224,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(102,157,224,.035) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+a{transition:color .25s,background .25s,border-color .25s,transform .25s}
+.wrap{max-width:1160px}
+header{background:rgba(5,11,25,.82)!important;border-bottom:1px solid var(--line)!important;backdrop-filter:blur(18px)}
+.brand{color:#f4f8ff!important;font-weight:800;letter-spacing:-.04em}
+.brand span,.eyebrow,.section-kicker{color:#55c7ff!important}
+.nav-links a{color:#c5d5eb!important}.nav-links a:hover,.nav-links a.active{color:#57c8ff!important}
+.nav-links .hire,.btn.primary{background:linear-gradient(110deg,#078cf5,#7650ee)!important;color:#fff!important;border:0!important;box-shadow:0 10px 28px rgba(39,126,244,.22)}
+.hero{min-height:690px;padding-top:95px;padding-bottom:95px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:440px;height:440px;right:-150px;top:10px;border-radius:50%;background:rgba(34,137,255,.10);filter:blur(90px);pointer-events:none}
+.hero h1{font-size:clamp(3.3rem,7vw,6.3rem);line-height:.98;letter-spacing:-.075em;color:#fff}
+.hero h1 span{background:linear-gradient(100deg,#3dc8ff,#9274ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.roles,.role{color:#d5e7ff!important}
+.lead{max-width:620px;color:#b5c7df!important;line-height:1.85}
+.eyebrow{letter-spacing:.18em;font-size:.74rem;font-weight:800}
+.dot{background:#19d89a!important;box-shadow:0 0 14px #19d89a}
+.btn{border-radius:12px!important;padding:14px 21px!important;font-weight:750!important}
+.btn.secondary{border:1px solid #315a8b!important;color:#eaf4ff!important;background:#ffffff08!important}
+.btn:hover{transform:translateY(-3px)}
+.profile-card,.fact,.skill,.project,.edu,.language,.contact-item,.focus{background:linear-gradient(145deg,rgba(14,34,66,.96),rgba(8,20,42,.98))!important;border:1px solid var(--line)!important;color:var(--text)!important;box-shadow:0 18px 50px rgba(0,0,0,.16)}
+.profile-card{border-radius:26px!important;box-shadow:0 24px 75px rgba(0,0,0,.32),0 0 40px var(--glow)!important}
+.avatar{overflow:hidden!important;background:#0c2144!important}
+.profile-photo{width:100%;height:100%;object-fit:cover;object-position:center 30%;border-radius:inherit;display:block}
+.sub,.about-copy p,.project-body>p,.edu p,.contact-intro,.contact-note{color:var(--muted)!important}
+.fact{border-radius:14px!important}
+.fact strong{color:#57c7ff!important}
+section{position:relative}
+.about,.skills,.projects,.education,.languages{background:transparent!important}
+.section-title{color:#f4f8ff!important;letter-spacing:-.055em}
+.section-title span{color:#55c7ff!important}
+.about-grid{gap:40px}
+.focus{border-radius:20px!important}
+.skill-grid{gap:14px!important}
+.skill{border-radius:16px!important;transition:transform .25s,border-color .25s}
+.skill:hover,.project:hover,.contact-item:hover{transform:translateY(-5px);border-color:rgba(66,184,255,.65)!important;box-shadow:0 20px 42px rgba(0,0,0,.25),0 0 24px rgba(25,137,255,.12)}
+.symbol,.project-icon{color:#54c5ff!important}
+.chip,.stack span{background:#102b50!important;color:#cde5ff!important;border:1px solid #1d4778!important;border-radius:999px!important}
+.project{border-radius:20px!important;overflow:hidden;transition:transform .25s,border-color .25s}
+.project-head{background:linear-gradient(115deg,#0d2a53,#101b3c)!important;border-bottom:1px solid var(--line)!important}
+.project-body{padding:25px!important}
+.project h3{color:#fff!important;letter-spacing:-.035em}
+.project-link{color:#57c7ff!important;font-weight:800}
+.status{border-radius:999px!important;background:#0c3b34!important;color:#55e5b2!important}
+.status.build{background:#40310d!important;color:#ffd477!important}
+.edu,.language{border-radius:18px!important}
+.edu .label{color:#5bcaff!important}
+.contact{background:linear-gradient(135deg,rgba(8,26,55,.95),rgba(9,15,35,.96))!important;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.contact-item{border-radius:15px!important;padding:18px!important}
+.contact-item small{color:#55c7ff!important;font-weight:800;letter-spacing:.1em}
+.contact-item strong{color:#f1f7ff!important;overflow-wrap:anywhere}
+footer{background:#030815!important;border-top:1px solid var(--line)!important;color:#9db2ce!important}
+footer a{color:#5bc8ff!important}
+#top{scroll-margin-top:80px}
+@media(max-width:760px){.hero{padding-top:65px;padding-bottom:60px;min-height:auto}.hero h1{font-size:clamp(3rem,14vw,4.7rem)}.nav-links{background:#08152c!important;border:1px solid var(--line)!important;border-radius:15px;padding:16px!important}.profile-card{margin-top:20px}.about-grid{gap:24px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -83,6 +144,7 @@ footer{background:#030918;color:#a8bdd8}
 <a class="contact-item" href="mailto:derejesolomon363@gmail.com"><small>✉️ Email</small><strong>Derejesolomon363@gmail.com</strong></a>
 <a class="contact-item" href="https://github.com/bekan25" target="_blank" rel="noopener"><small>◉ GitHub</small><strong>github.com/bekan25</strong></a>
 <a class="contact-item" href="https://www.linkedin.com/in/dereje-solomon-9a6230370" target="_blank" rel="noopener"><small>in LinkedIn</small><strong>Dereje Solomon</strong></a>
+<a class="contact-item" href="https://wa.me/?text=Hello%20Dereje%2C%20I%20found%20your%20portfolio." target="_blank" rel="noopener"><small>🟢 WhatsApp</small><strong>Message me on WhatsApp</strong></a>
 <a class="contact-item" href="https://t.me/counqer1777" target="_blank" rel="noopener"><small>➤ Telegram</small><strong>@counqer1777</strong></a>
 <a class="contact-item" href="https://t.me/deratechofficial" target="_blank" rel="noopener"><small>➤ Telegram Channel</small><strong>@deratechofficial</strong></a>
 </div><p class="contact-note">Based in Addis Ababa, Ethiopia · Available for remote collaboration.</p></div></section>
