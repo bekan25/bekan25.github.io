@@ -17,7 +17,39 @@
 <meta property="og:image:alt" content="Dereje Solomon — Full-Stack Developer and Writer">
 <meta name="twitter:site" content="@bekan25">
 <link rel="manifest" href="/manifest.webmanifest">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Dereje Solomon","url":"https://bekan25.github.io/","image":"https://bekan25.github.io/assets/profile.jpg","jobTitle":"Full-Stack Developer","description":"Full-Stack Developer and Writer building practical software and AI-supported learning solutions.","email":"mailto:derejesolomon363@gmail.com","sameAs":["https://github.com/bekan25","https://www.linkedin.com/in/dereje-solomon-9a6230370","https://t.me/counqer1777"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Dereje Solomon","url":"https://bekan25.github.io/","image":"https://bekan25.github.io/assets/profile.jpg","jobTitle":"Full-Stack Developer","description":"Full-Stack Developer and Writer building practical software and AI-supported learning solutions.","email":"mailto:derejesolomon363@gmail.com","sameAs":["https://github.com/bekan25","https://www.linkedin.com/in/dereje-solomon-9a6230370","https://t.me/counqer1777"]}
+/* Theme preference: saved locally on this device. */
+const themeToggle=document.getElementById("themeToggle");
+const savedTheme=(()=>{try{return localStorage.getItem("dereje-theme")}catch{return null}})();
+document.documentElement.dataset.theme=savedTheme==="dark"?"dark":"light";
+function updateThemeButton(){if(themeToggle){const dark=document.documentElement.dataset.theme==="dark";themeToggle.textContent=dark?"☀ Light":"◐ Dark";themeToggle.setAttribute("aria-label",dark?"Switch to light theme":"Switch to dark theme");}}
+updateThemeButton();
+if(themeToggle)themeToggle.addEventListener("click",()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;try{localStorage.setItem("dereje-theme",next)}catch{}updateThemeButton()});
+
+/* English / Afaan Oromoo switch for key navigation and introduction copy. */
+const translations={
+en:{navAbout:"About",navSkills:"Skills",navProjects:"Projects",navCases:"Case Studies",navGithub:"GitHub",navWriting:"Writing",navEducation:"Education",navArchitecture:"Architecture",navInsights:"Insights",navTestimonials:"Testimonials",heroLead:"I’m a fourth-year Computer Science student at Unity University, passionate about building useful software, web applications, and AI-supported learning experiences. I enjoy turning real problems into clear, practical digital solutions."},
+om:{navAbout:"Waa'ee koo",navSkills:"Dandeettii",navProjects:"Pirojektoota",navCases:"Qorannoo pirojektii",navGithub:"GitHub",navWriting:"Barreeffama",navEducation:"Barnoota",navArchitecture:"Ijaarsa sirnaa",navInsights:"Yaad-rimee teeknikaa",navTestimonials:"Yaada namootaa",heroLead:"Ani barataa Computer Science waggaa 4ffaa Yunivarsiitii Unity ti. Software, web application fi furmaata barnootaa AI deeggaruun ijaaruu nan jaalladha. Rakkoolee dhugaa gara furmaata dijitaalaa ifaa fi hojii irra ooluutti jijjiiruuf nan hojjedha."}
+};
+let currentLanguage="en";
+const langToggle=document.getElementById("langToggle");
+function applyLanguage(language){currentLanguage=language;document.documentElement.lang=language==="om"?"om":"en";document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(translations[language][key])el.textContent=translations[language][key]});if(langToggle){langToggle.textContent=language==="om"?"Afaan Oromoo":"English";langToggle.setAttribute("aria-label",language==="om"?"Switch to English":"Switch to Afaan Oromoo")}}
+if(langToggle)langToggle.addEventListener("click",()=>applyLanguage(currentLanguage==="en"?"om":"en"));
+
+/* Privacy-first local analytics. No data leaves this browser. */
+(function(){
+ const storageKey="dereje-portfolio-local-v1";
+ let stats={views:0,sections:[],contacts:0};
+ try{stats=JSON.parse(localStorage.getItem(storageKey)||"null")||stats}catch{}
+ stats.views+=1;
+ const save=()=>{try{localStorage.setItem(storageKey,JSON.stringify(stats))}catch{}};
+ const render=()=>{const v=document.getElementById("local-views"),s=document.getElementById("local-sections"),c=document.getElementById("local-contacts");if(v)v.textContent=String(stats.views);if(s)s.textContent=String(stats.sections.length);if(c)c.textContent=String(stats.contacts)};
+ save();render();
+ document.querySelectorAll("main section[id]").forEach(section=>{const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting&&!stats.sections.includes(section.id)){stats.sections.push(section.id);save();render();observer.disconnect()}})},{threshold:.2});observer.observe(section)});
+ document.querySelectorAll('a[href^="mailto:"],a[href^="tel:"],a[href*="wa.me"],a[href*="t.me"]').forEach(link=>link.addEventListener("click",()=>{stats.contacts+=1;save();render()}));
+})();
+
+</script>
 <meta name="description" content="Dereje Solomon — Full-Stack Developer and Writer, building practical web applications and AI-powered learning solutions in Ethiopia.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dereje Solomon | Full-Stack Developer">
@@ -337,14 +369,89 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .case-link{color:#2855ff;font-size:12px;font-weight:800;text-decoration:none;margin-top:14px}
 @media(max-width:760px){.case-grid{grid-template-columns:1fr}.case-card:last-child{grid-column:auto}.case-card{padding:20px}}
 
+
+/* Portfolio expansion: architecture, insights, language, theme and local analytics */
+.nav-tool{border:1px solid var(--line);background:transparent;color:var(--text);font:700 11px "DM Sans",sans-serif;padding:9px 10px;border-radius:4px;cursor:pointer;white-space:nowrap}
+.nav-tool:hover{border-color:var(--accent);color:var(--accent)}
+.skills-proof{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.skills-proof>div{padding:17px 18px;background:#fff;border:1px solid var(--line);border-radius:6px}
+.skills-proof strong{font:800 11px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.07em;color:var(--accent)}
+.skills-proof p{font-size:12px;color:#555b64;margin:8px 0 0;line-height:1.8}
+.skills-proof small{grid-column:1/-1;color:#777d87;font-size:10px;line-height:1.6}
+.module-intro{max-width:780px;margin:-14px 0 28px;color:#626872;font-size:14px;line-height:1.85}
+.architecture{background:#f0efe9!important;border-block:1px solid #deddd5}
+.architecture-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.architecture-card{background:#fff;border:1px solid #deddd5;border-radius:6px;padding:22px;min-width:0}
+.architecture-head>span,.insight-tag{font:800 10px ui-monospace,monospace;letter-spacing:.08em;color:#2855ff;text-transform:uppercase}
+.architecture-head h3{font-size:25px;letter-spacing:-.05em;margin:8px 0 3px;color:#17191d}
+.architecture-head p{font-size:12px;color:#626872;margin:0 0 18px}
+.arch-flow{display:grid;gap:8px;text-align:center}
+.arch-node{padding:12px 14px;border:1px solid #dfe2eb;background:#f8f9fc;border-radius:4px;display:flex;flex-direction:column;gap:3px}
+.arch-node b{font:800 12px Manrope,sans-serif;color:#1c263a}
+.arch-node span{font-size:10px;color:#656b76;line-height:1.5}
+.arch-node.accent{background:#edf0ff;border-color:#cbd3ff}
+.arch-node.storage{background:#eaf6f1;border-color:#c4e6d7}
+.arch-arrow{font:800 10px ui-monospace,monospace;color:#2855ff;letter-spacing:.04em}
+.arch-layers{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.arch-foot{font-size:10px;color:#626872;line-height:1.7;border-top:1px solid #e6e6e0;padding-top:12px;margin:14px 0 0}
+.insights{background:transparent!important}
+.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.insight-card{background:#fff;border:1px solid var(--line);padding:21px;border-radius:6px;display:flex;flex-direction:column}
+.insight-card h3{font-size:17px;line-height:1.3;letter-spacing:-.04em;color:var(--text);margin:12px 0 8px}
+.insight-card>p{font-size:12px;line-height:1.8;color:#626872}
+.insight-card details{border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.insight-card summary{cursor:pointer;color:var(--accent);font-size:11px;font-weight:800}
+.insight-card details p{font-size:12px;line-height:1.8;color:#555b64}
+.insight-more{font-size:12px;color:#626872;margin-top:20px}
+.insight-more a{color:var(--accent);font-weight:800;text-decoration:none}
+.testimonials{background:#eeede7!important;border-block:1px solid #d9d9d2}
+.testimonial-panel{display:grid;grid-template-columns:70px 1fr;gap:20px;align-items:start;background:#fff;border:1px solid #d9d9d2;padding:30px;border-radius:6px}
+.testimonial-mark{font:800 75px/1 Georgia,serif;color:#2855ff}
+.testimonial-panel h3{font-size:22px;margin:0 0 8px;color:#17191d}
+.testimonial-panel p{max-width:700px;font-size:13px;line-height:1.8;color:#626872;margin:0 0 20px}
+.hire-section{background:transparent!important}
+.hire-panel{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;background:#171b24;color:#fff;padding:32px;border-radius:6px}
+.hire-panel .section-title{color:#fff!important;margin-bottom:14px}
+.hire-panel p{max-width:720px;color:#c3c6ce;font-size:13px;line-height:1.8}
+.hire-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}
+.hire-tags span{font-size:10px;color:#dbe3ff;background:#29334a;border:1px solid #414e6a;padding:6px 9px;border-radius:3px}
+.hire-actions{display:flex;flex-direction:column;gap:10px;min-width:190px}
+.hire-actions .secondary{border-color:#56617a!important}
+.analytics{background:#f0efe9!important;border-block:1px solid #deddd5}
+.analytics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.analytics-card{background:#fff;border:1px solid #deddd5;padding:22px;border-radius:6px;display:flex;flex-direction:column;gap:6px}
+.analytics-card strong{font:800 32px Manrope,sans-serif;color:#2855ff}
+.analytics-card span{font-size:11px;color:#626872}
+.analytics-note{font-size:10px;color:#777d87;line-height:1.7;margin-top:14px}
+html[data-theme="dark"]{color-scheme:dark}
+html[data-theme="dark"] body{background:#0b1020!important;color:#edf3ff!important}
+html[data-theme="dark"] nav{background:rgba(7,13,27,.95)!important;border-color:#253550!important}
+html[data-theme="dark"] .nav-links{background:#0b1020!important}
+html[data-theme="dark"] .nav-links a,html[data-theme="dark"] .brand{color:#edf3ff!important}
+html[data-theme="dark"] .architecture,html[data-theme="dark"] .testimonials,html[data-theme="dark"] .analytics,html[data-theme="dark"] .case-studies{background:#101a2d!important;border-color:#263954!important}
+html[data-theme="dark"] .architecture-card,html[data-theme="dark"] .insight-card,html[data-theme="dark"] .testimonial-panel,html[data-theme="dark"] .analytics-card,html[data-theme="dark"] .skills-proof>div,html[data-theme="dark"] .case-card{background:#14213a!important;border-color:#2b3d5b!important}
+html[data-theme="dark"] .architecture-head h3,html[data-theme="dark"] .arch-node b,html[data-theme="dark"] .insight-card h3,html[data-theme="dark"] .testimonial-panel h3,html[data-theme="dark"] .case-card h3{color:#f2f6ff!important}
+html[data-theme="dark"] .architecture-head p,html[data-theme="dark"] .arch-node span,html[data-theme="dark"] .arch-foot,html[data-theme="dark"] .module-intro,html[data-theme="dark"] .insight-card>p,html[data-theme="dark"] .insight-card details p,html[data-theme="dark"] .testimonial-panel p,html[data-theme="dark"] .analytics-note,html[data-theme="dark"] .skills-proof p,html[data-theme="dark"] .skills-proof small,html[data-theme="dark"] .case-intro,html[data-theme="dark"] .case-subtitle,html[data-theme="dark"] .case-block p,html[data-theme="dark"] .case-note{color:#b9c7dc!important}
+html[data-theme="dark"] .arch-node{background:#1b2d4a!important;border-color:#385274!important}
+html[data-theme="dark"] .arch-node.accent{background:#202d54!important}
+html[data-theme="dark"] .arch-node.storage{background:#173d39!important}
+html[data-theme="dark"] .case-block{border-color:#2b3d5b!important}
+html[data-theme="dark"] .case-tags span{background:#1b2d4a!important;border-color:#385274!important;color:#d9e6f7!important}
+html[data-theme="dark"] .case-note strong{color:#f2f6ff!important}
+html[data-theme="dark"] .skills-proof>div{color:#edf3ff}
+html[data-theme="dark"] .testimonial-panel,html[data-theme="dark"] .hire-panel{box-shadow:none}
+html[data-theme="dark"] .analytics-card strong{color:#8ea4ff}
+@media(max-width:900px){.nav-links{gap:12px!important}.architecture-grid{grid-template-columns:1fr}.insight-grid{grid-template-columns:1fr 1fr}.hire-panel{grid-template-columns:1fr}.hire-actions{flex-direction:row;flex-wrap:wrap}}
+@media(max-width:600px){.nav-tool{width:100%;padding:11px}.skills-proof,.architecture-grid,.insight-grid,.analytics-grid{grid-template-columns:1fr}.arch-layers{grid-template-columns:1fr}.testimonial-panel{grid-template-columns:1fr;padding:22px}.testimonial-mark{font-size:48px}.hire-panel{padding:22px}.hire-actions{flex-direction:column}}
+
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav><div class="wrap nav-inner"><a class="brand" href="#top">D<span>.</span>SOLOMON</a><button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button><ul class="nav-links" id="navLinks"><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#case-studies">Case Studies</a></li><li><a href="#github-activity">GitHub</a></li><li><a href="#writing">Writing</a></li><li><a href="#education">Education</a></li><li><a href="assets/Dereje_Solomon_CV.pdf" download>Download CV</a></li><li><a class="hire" href="#contact">Contact me</a></li></ul></div></nav>
+<nav><div class="wrap nav-inner"><a class="brand" href="#top">D<span>.</span>SOLOMON</a><button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button><ul class="nav-links" id="navLinks"><li><a href="#about" data-i18n="navAbout">About</a></li><li><a href="#skills" data-i18n="navSkills">Skills</a></li><li><a href="#projects" data-i18n="navProjects">Projects</a></li><li><a href="#case-studies" data-i18n="navCases">Case Studies</a></li><li><a href="#github-activity" data-i18n="navGithub">GitHub</a></li><li><a href="#writing" data-i18n="navWriting">Writing</a></li><li><a href="#education" data-i18n="navEducation">Education</a></li><li><a href="#architecture" data-i18n="navArchitecture">Architecture</a></li><li><a href="#insights" data-i18n="navInsights">Insights</a></li><li><a href="#testimonials" data-i18n="navTestimonials">Testimonials</a></li><li><a href="assets/Dereje_Solomon_CV.pdf" download>Download CV</a></li><li><button class="nav-tool" id="langToggle" type="button" aria-label="Switch language">አ / EN</button></li><li><button class="nav-tool" id="themeToggle" type="button" aria-label="Switch color theme">◐ Theme</button></li><li><a class="hire" href="#contact">Hire me</a></li></ul></div></nav>
 <main id="main-content" tabindex="-1">
 <div class="wrap hero" id="top">
-<div><div class="eyebrow"><span class="dot"></span> Open to remote opportunities</div><h1>Dereje <span>Solomon</span></h1><div class="roles"><span class="role">Full-Stack Developer</span><span class="role">Writer</span><span class="role">Computer Science Student</span></div><p class="lead">I’m a fourth-year Computer Science student at Unity University, passionate about building useful software, web applications, and AI-supported learning experiences. I enjoy turning real problems into clear, practical digital solutions.</p><div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><a class="btn secondary" href="assets/Dereje_Solomon_CV.pdf" download>Download CV ↓</a><a class="btn secondary" href="mailto:derejesolomon363@gmail.com">Get in touch</a></div></div>
+<div><div class="eyebrow"><span class="dot"></span> Open to remote opportunities</div><h1>Dereje <span>Solomon</span></h1><div class="roles"><span class="role">Full-Stack Developer</span><span class="role">Writer</span><span class="role">Computer Science Student</span></div><p class="lead" data-i18n="heroLead">I’m a fourth-year Computer Science student at Unity University, passionate about building useful software, web applications, and AI-supported learning experiences. I enjoy turning real problems into clear, practical digital solutions.</p><div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><a class="btn secondary" href="assets/Dereje_Solomon_CV.pdf" download>Download CV ↓</a><a class="btn secondary" href="mailto:derejesolomon363@gmail.com">Get in touch</a></div></div>
 <aside class="profile-card"><div class="avatar"><img class="profile-photo" loading="eager" src="assets/profile.jpg" alt="Portrait of Dereje Solomon" width="600" height="700" fetchpriority="high" decoding="async"></div><h2>Dereje Solomon</h2><p class="sub">Full-Stack Developer | Writer</p><div class="mini-line"></div><div class="facts"><div class="fact"><strong>04</strong><span>University year</span></div><div class="fact"><strong>03</strong><span>Languages</span></div><div class="fact"><strong>09+</strong><span>Projects & concepts</span></div><div class="fact"><strong>2025</strong><span>Udacity certificate</span></div></div></aside>
 </div>
 <section class="about" id="about"><div class="wrap"><div class="section-kicker">About me</div><h2 class="section-title">Curious mind. Practical work.<br><span>Purposeful technology.</span></h2><div class="about-grid"><div class="about-copy"><p>I’m a fourth-year Computer Science student at Unity University in Addis Ababa, Ethiopia. My interests include full-stack development, software engineering, artificial intelligence, databases, and technology that solves everyday problems.</p><p>I enjoy learning by building. My project work includes community-platform concepts, digital learning tools, and web-based management and commerce applications. I’m also a writer who values clear communication and sharing useful knowledge.</p><p>I’m continuously improving my engineering skills and looking for opportunities to contribute to collaborative teams, internships, freelance projects, and remote software roles.</p></div><div class="focus"><h3>What I focus on</h3><p>Building reliable and useful digital products through continuous learning.</p><ul><li>Full-stack web application development</li><li>REST APIs, databases, and backend systems</li><li>AI-supported and multilingual learning tools</li><li>Problem-solving and maintainable code</li><li>Technical writing and communication</li></ul></div></div></div></section>
@@ -355,7 +462,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <article class="skill"><div class="symbol">CS</div><h3>Programming Languages</h3><div class="chips"><span class="chip">C++</span><span class="chip">Java</span><span class="chip">Python</span><span class="chip">C#</span><span class="chip">JavaScript</span></div></article>
 <article class="skill"><div class="symbol">AI</div><h3>Mobile & AI</h3><div class="chips"><span class="chip">Flutter</span><span class="chip">Android</span><span class="chip">AI integration</span><span class="chip">Prompt design</span></div></article>
 <article class="skill"><div class="symbol">DX</div><h3>Tools & Practices</h3><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">VS Code</span><span class="chip">Clean Architecture</span><span class="chip">CQRS</span><span class="chip">Agile basics</span></div></article>
-</div></div></section>
+</div>
+<div class="skills-proof">
+  <div><strong>Applied in project work</strong><p>React · TypeScript · Node.js · ASP.NET Core · PostgreSQL · Git/GitHub · Clean Architecture</p></div>
+  <div><strong>Continuously developing</strong><p>Python · Java · Flutter · Android · AI integration · testing and deployment practices</p></div>
+  <small>Skill groupings describe practical exposure and current learning focus, not test-certified proficiency scores.</small>
+</div>
+</div></section>
 <section class="projects" id="projects"><div class="wrap"><div class="section-kicker">Selected work</div><h2 class="section-title">Projects I’m <span>working on</span></h2><div class="project-grid">
 <article class="project"><div class="project-head"><span class="project-num">01</span><div class="project-icon">🌐</div><h3>NEXORAS</h3><p>The Global Action Network</p></div><div class="project-body"><span class="status build">In development</span><p>A community-oriented digital platform concept built around connecting people to create, learn, act, and earn through shared opportunities and collaboration.</p><div class="stack"><span>React</span><span>TypeScript</span><span>ASP.NET Core</span><span>PostgreSQL</span><span>Redis</span><span>SignalR</span></div><a class="project-link" href="https://github.com/bekan25" target="_blank" rel="noopener">Explore GitHub profile ↗</a></div></article>
 <article class="project"><div class="project-head"><span class="project-num">02</span><div class="project-icon">📚</div><h3>BARNOOTAAI360</h3><p>AI-supported learning ecosystem</p></div><div class="project-body"><span class="status build">In development</span><p>A multilingual, offline-first learning ecosystem concept for Ethiopian Grades 9–12, designed to support students with digital learning resources and AI-assisted study.</p><div class="stack"><span>Node.js</span><span>PostgreSQL</span><span>Android</span><span>AI</span><span>Offline-first</span></div><a class="project-link" href="https://github.com/bekan25" target="_blank" rel="noopener">Explore GitHub profile ↗</a></div></article>
@@ -405,6 +518,30 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div></section>
 <section class="github-section" id="github-activity"><div class="wrap"><div class="section-kicker">Open-source footprint</div><h2 class="section-title">GitHub <span>activity</span></h2><p class="github-intro">A live view of public repositories and recent public activity from my GitHub account.</p><div class="github-stats"><a href="https://github.com/bekan25?tab=repositories" target="_blank" rel="noopener"><strong id="repo-count">—</strong><span>Public repositories</span></a><a href="https://github.com/bekan25" target="_blank" rel="noopener"><strong>bekan25</strong><span>GitHub profile</span></a><a href="https://github.com/bekan25?tab=activity" target="_blank" rel="noopener"><strong>Recent work</strong><span>View full activity</span></a></div><div class="github-repositories" id="github-repositories" aria-live="polite"><p class="github-loading">Loading public repositories…</p></div><div class="github-live"><div class="github-live-head"><h3>Latest public activity</h3><a href="https://github.com/bekan25" target="_blank" rel="noopener">View GitHub ↗</a></div><div id="github-events" aria-live="polite"><p class="github-loading">Loading public GitHub activity…</p></div></div></div></section>
 <section class="writing" id="writing"><div class="wrap"><div class="section-kicker">Ideas & communication</div><h2 class="section-title">Writing with <span>purpose</span></h2><div class="writing-grid"><article class="writing-card"><span class="writing-tag">Book project · In progress</span><h3>MURANNOO: HUMNA KEESSA KEE DAMMAQSI</h3><p>An Afaan Oromoo self-development book about self-awareness, discipline, purposeful goals, and taking consistent action.</p><a href="https://t.me/deratechofficial" target="_blank" rel="noopener">Follow my writing updates ↗</a></article><article class="writing-card"><span class="writing-tag">Technology community</span><h3>Dera Tech Hub</h3><p>Practical technology updates, programming, AI tools, scholarships, freelance opportunities, and learning resources for the community.</p><a href="https://t.me/deratechofficial" target="_blank" rel="noopener">Visit Telegram channel ↗</a></article></div></div></section>
+<section class="architecture" id="architecture"><div class="wrap">
+<div class="section-kicker">System thinking</div><h2 class="section-title">From idea to <span>architecture</span></h2>
+<p class="module-intro">Selected high-level architecture views based on the current project designs. These diagrams explain intended components and boundaries; they are not claims of a completed production deployment.</p>
+<div class="architecture-grid">
+<article class="architecture-card"><div class="architecture-head"><span>01 / PLATFORM ARCHITECTURE</span><h3>NEXORAS</h3><p>React client, API gateway, clean backend layers and shared infrastructure.</p></div>
+<div class="arch-flow"><div class="arch-node"><b>Web client</b><span>React 19 · TypeScript · Tailwind</span></div><div class="arch-arrow">↓ HTTPS / REST</div><div class="arch-node accent"><b>API layer</b><span>Node / Express gateway · ASP.NET Core bridge</span></div><div class="arch-arrow">↓ MediatR · CQRS</div><div class="arch-layers"><div class="arch-node"><b>Domain</b><span>Entities · rules</span></div><div class="arch-node"><b>Application</b><span>Use cases · handlers</span></div><div class="arch-node"><b>Infrastructure</b><span>EF Core · integrations</span></div></div><div class="arch-arrow">↓ persistence & real-time</div><div class="arch-node storage"><b>PostgreSQL · Redis · SignalR</b><span>Data · cache · live updates</span></div></div>
+<p class="arch-foot">Architecture direction: C# ASP.NET Core Clean Architecture with a React/TypeScript frontend.</p></article>
+<article class="architecture-card"><div class="architecture-head"><span>02 / LEARNING PLATFORM</span><h3>BARNOOTAAI360</h3><p>Multilingual learning content with web services and an Android offline-storage direction.</p></div>
+<div class="arch-flow"><div class="arch-node"><b>Student experiences</b><span>Web app · Android app</span></div><div class="arch-arrow">↓ API / sync boundary</div><div class="arch-node accent"><b>Application services</b><span>Authentication · learning · quizzes · resources</span></div><div class="arch-arrow">↓ authorization</div><div class="arch-node"><b>Access control</b><span>Role-based access control (RBAC)</span></div><div class="arch-arrow">↓ data access</div><div class="arch-layers"><div class="arch-node"><b>PostgreSQL</b><span>Structured data</span></div><div class="arch-node"><b>JSON store</b><span>Content data</span></div><div class="arch-node"><b>Room</b><span>Android local data</span></div></div></div>
+<p class="arch-foot">Offline-first is a product direction; AI services and full offline capability depend on implementation and configuration.</p></article>
+</div></div></section>
+<section class="insights" id="insights"><div class="wrap"><div class="section-kicker">Technical writing</div><h2 class="section-title">Notes from the <span>build process</span></h2><p class="module-intro">Short practical articles that explain engineering ideas in plain language. These are original portfolio notes, not claims of published research.</p>
+<div class="insight-grid">
+<article class="insight-card"><span class="insight-tag">Backend · Architecture</span><h3>Why separate Domain, Application and Infrastructure?</h3><p>Clean Architecture helps keep business rules independent from frameworks and external services.</p><details><summary>Read the note</summary><p>The Domain layer expresses core concepts and rules. The Application layer coordinates use cases. Infrastructure handles details such as database access and external integrations. The API layer exposes the application to clients. This separation can make a growing codebase easier to test and change, provided the boundaries are respected rather than added only for folder structure.</p></details></article>
+<article class="insight-card"><span class="insight-tag">Learning technology · Offline-first</span><h3>Designing for low-connectivity learning</h3><p>Offline-first should be a clear data and synchronization strategy—not just a marketing label.</p><details><summary>Read the note</summary><p>A practical offline-first design identifies which lessons and resources can be stored locally, how updates are synchronized, how conflicts are handled, and which features still require a network connection. Local persistence, clear sync states, and honest user messaging are essential. AI-powered features may still require an online service unless an on-device model is deliberately implemented.</p></details></article>
+<article class="insight-card"><span class="insight-tag">Computer science · Fundamentals</span><h3>Understand Big-O before optimizing</h3><p>Complexity describes how an algorithm's resource use grows as input size increases.</p><details><summary>Read the note</summary><p>Big-O gives an upper-bound growth description, not an exact runtime in seconds. A single loop over n items is commonly O(n); two nested loops over n items are commonly O(n²). Sequential loops add their costs, while the dominant growth term describes the overall asymptotic behavior. Always consider the actual input and algorithm before choosing a data structure.</p></details></article>
+</div><p class="insight-more">More practical notes and learning updates: <a href="https://t.me/deratechofficial" target="_blank" rel="noopener">Dera Tech Hub ↗</a></p>
+</div></section>
+<section class="testimonials" id="testimonials"><div class="wrap"><div class="section-kicker">Trust & collaboration</div><h2 class="section-title">Recommendations <span>from people</span></h2>
+<div class="testimonial-panel"><div class="testimonial-mark">“</div><div><h3>Real feedback matters.</h3><p>I’m building this section around genuine feedback from teammates, mentors, clients, and collaborators. No invented names or quotations are displayed.</p><a class="btn secondary" href="mailto:derejesolomon363@gmail.com?subject=Portfolio%20recommendation">Share a recommendation ↗</a></div></div>
+</div></section>
+<section class="hire-section" id="work-together"><div class="wrap hire-panel"><div><div class="section-kicker">Work together</div><h2 class="section-title">Have a meaningful problem to <span>solve?</span></h2><p>I’m interested in remote full-stack opportunities, freelance projects, internships, and thoughtful collaborations where I can contribute, learn, and build useful software.</p><div class="hire-tags"><span>Remote opportunities</span><span>Freelance projects</span><span>Collaboration</span></div></div><div class="hire-actions"><a class="btn primary" href="mailto:derejesolomon363@gmail.com?subject=Work%20opportunity">Discuss an opportunity ↗</a><a class="btn secondary" href="https://wa.me/251922481727" target="_blank" rel="noopener">WhatsApp me</a></div></div></section>
+<section class="analytics" id="portfolio-analytics"><div class="wrap"><div class="section-kicker">Privacy-first insights</div><h2 class="section-title">Portfolio <span>activity</span></h2><p class="module-intro">A small local-only counter for this browser. These numbers are stored on this device and are not sent to a server or shown as global visitor statistics.</p>
+<div class="analytics-grid"><article class="analytics-card"><strong id="local-views">0</strong><span>Visits on this device</span></article><article class="analytics-card"><strong id="local-sections">0</strong><span>Sections explored here</span></article><article class="analytics-card"><strong id="local-contacts">0</strong><span>Contact clicks here</span></article></div><p class="analytics-note">No third-party tracking pixel or external analytics account is used by this dashboard. Clearing this browser's site data resets these local counters.</p></div></section>
 <section class="education" id="education"><div class="wrap"><div class="section-kicker">Learning journey</div><h2 class="section-title">Education & <span>credentials</span></h2><div class="edu-grid"><article class="edu"><small>Unity University · Ethiopia</small><h3>BSc Computer Science</h3><p>Fourth-year student. Coursework includes programming, data structures, algorithms, database systems, and software engineering.</p><span class="label">Currently studying</span></article><article class="edu"><small>Udacity</small><h3>Programming / Web Development</h3><p>Certificate earned in 2025, reflecting continued learning in programming and web development.</p><span class="label">2025 certificate</span></article></div></div></section>
 <section class="languages"><div class="wrap"><div class="section-kicker">Communication</div><h2 class="section-title">Languages I <span>speak</span></h2><div class="language-grid"><div class="language"><strong>Afaan Oromoo</strong><span>Native</span></div><div class="language"><strong>Amharic</strong><span>Fluent</span></div><div class="language"><strong>English</strong><span>Working proficiency</span></div></div></div></section>
 <section class="contact" id="contact"><div class="wrap"><div class="section-kicker">Let’s connect</div><h2 class="section-title">Have a project or<br>opportunity in <span>mind?</span></h2><p class="contact-intro">I’m open to relevant remote opportunities, freelance work, internships, and collaborations. The best way to reach me is by email or Telegram.</p><div class="contact-grid">
