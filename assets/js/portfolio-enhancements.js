@@ -92,7 +92,7 @@ const T = {
 "Showing saved activity; live refresh is unavailable.":"Sochii duraan kuufame agarsiisaa jira; haaromsi live yeroo kana hin jiru.",
 "Open the repository directly to view its source and current status.":"Madda koodii fi haala ammaa ilaaluuf repository kallattiin bani.",
 "Live GitHub activity is loading. You can always open the profile directly.":"Sochiin GitHub live fe'amaa jira. Profile kallattiin banuu dandeessa.",
-"Please complete all fields correctly before opening WhatsApp.":"WhatsApp banuu dura maaloo dirreewwan hunda sirriitti guuti.",
+"Please complete all fields correctly before opening WhatsApp.":"WhatsApp banuu dura maaloo dirreewwan hunda sirriitti guuti.","pushed code to":"koodii dhiyeesse","created":"uume","opened a pull request in":"pull request bane","updated an issue in":"issue haaromse","starred":"urjii kenne","forked":"fork godhe","made public":"uummataaf banaa godhe","worked on":"irratti hojjete","Public GitHub activity":"Sochii GitHub uummataa","Source code":"Madda koodii","Updated":"Haaromfame","commit(s)":"commit","Repository":"Repository",
 "Your email app is opening. Review your message and press Send to deliver it.":"Email app kee banamaa jira. Ergaa kee ilaaliitii geessuuf Send tuqi."
 };
 const originalNodes=new WeakMap(),originalAttrs=new WeakMap();
