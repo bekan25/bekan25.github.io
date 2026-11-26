@@ -1,5 +1,5 @@
 "use strict";
-const CACHE_NAME="dereje-portfolio-shell-v2";
+const CACHE_NAME="dereje-portfolio-shell-v3";
 const CORE_ASSETS=[
   "/",
   "/offline.html",
@@ -13,7 +13,9 @@ const CORE_ASSETS=[
   "/projects/merkato.html",
   "/projects/bdexpress.html",
   "/projects/high-school-management.html",
-  "/projects/adwa-market.html"
+  "/projects/adwa-market.html",
+  "/projects/nexoras.html",
+  "/projects/barnootaai360.html"
 ];
 
 self.addEventListener("install",event=>{
