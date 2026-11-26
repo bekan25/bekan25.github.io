@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>You're offline | Dereje Solomon</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(135deg,#f8faff,#f0f3ff 55%,#fbf8ff);color:#1b2a45;font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}
+main{width:min(560px,100%);padding:clamp(28px,6vw,52px);border:1px solid rgba(91,116,158,.18);border-radius:28px;background:rgba(255,255,255,.84);box-shadow:0 24px 70px rgba(35,58,99,.1);text-align:center}
+.mark{width:64px;height:64px;display:grid;place-items:center;margin:0 auto 24px;border-radius:18px;background:#17243b;color:#d5b56d;font-weight:800;font-size:24px}
+h1{margin:0 0 12px;font-size:clamp(28px,6vw,40px);letter-spacing:-.04em}
+p{color:#60708a}
+button{min-height:48px;padding:12px 22px;border:0;border-radius:999px;background:linear-gradient(110deg,#526fe8,#8870e9);color:#fff;font-weight:700;cursor:pointer}
+a{display:inline-block;margin-top:18px;color:#526fe8}
+</style>
+</head>
+<body>
+<main>
+<div class="mark" aria-hidden="true">DS</div>
+<h1>You're offline</h1>
+<p>Your connection is unavailable right now. Previously saved portfolio pages and files may still be accessible. Reconnect to refresh live GitHub activity and other online content.</p>
+<button type="button" onclick="location.reload()">Try again</button>
+<br><a href="/">Return to portfolio</a>
+</main>
+</body>
+</html>
