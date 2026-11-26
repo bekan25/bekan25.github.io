@@ -125,7 +125,7 @@ if(projectGrid){
   const filters=Array.from(document.querySelectorAll("[data-project-filter]"));
   const result=document.getElementById("project-results");
   let activeCategory="all";
-  const normalise=value=>String(value||"").toLocaleLowerCase().normalize("NFKD").replace(/[\\u0300-\\u036f]/g,"");
+  const normalise=value=>String(value||"").toLocaleLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"");
   const applyProjectFilters=()=>{
     const term=normalise(search?.value.trim());
     let visible=0;
