@@ -1723,7 +1723,10 @@ img{max-width:100%;height:auto}
   border-radius:999px;
   background:rgba(255,255,255,.9);
   color:#40516b;
-  font:600 12px/1.2 inherit;
+  font-family:inherit;
+  font-size:12px;
+  font-weight:600;
+  line-height:1.2;
   cursor:pointer;
   transition:background .18s ease,color .18s ease,border-color .18s ease;
 }
