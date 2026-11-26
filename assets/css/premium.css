@@ -786,3 +786,203 @@ nav .nav-links button:focus-visible{
   }
   nav .nav-links.open { display: grid !important; }
 }
+
+
+/* =========================================================
+   AURORA GLASS DESIGN SYSTEM — GLOBAL SECTION UNIFICATION
+   CSS-only, additive. Preserves all existing content and behavior.
+   ========================================================= */
+:root{
+  --aurora-ink:#f2f7ff;
+  --aurora-muted:#b5c5dc;
+  --aurora-bg:#071326;
+  --aurora-panel:rgba(18,39,68,.62);
+  --aurora-panel-strong:rgba(15,31,56,.82);
+  --aurora-line:rgba(169,207,255,.19);
+  --aurora-cyan:#67e1f5;
+  --aurora-blue:#648cff;
+  --aurora-violet:#a18bff;
+}
+html,body{
+  background-color:var(--aurora-bg)!important;
+  color:var(--aurora-ink)!important;
+}
+body{
+  background-image:
+    radial-gradient(ellipse at 12% 18%,rgba(49,125,224,.15),transparent 34%),
+    radial-gradient(ellipse at 88% 38%,rgba(126,91,255,.13),transparent 35%),
+    radial-gradient(ellipse at 50% 95%,rgba(48,196,224,.07),transparent 42%),
+    linear-gradient(145deg,#061225 0%,#091a33 48%,#0b1530 100%)!important;
+  background-attachment:fixed!important;
+}
+main{background:transparent!important}
+section,
+section:nth-of-type(even):not(.contact):not(.hire-section),
+.about,.projects,.languages,.skills,.education,.case-studies,.testimonials,.analytics,.architecture,.writing,.github-section,.insights{
+  background:linear-gradient(180deg,rgba(12,28,51,.76),rgba(8,20,39,.70))!important;
+  color:var(--aurora-ink)!important;
+  border-color:rgba(165,204,255,.08)!important;
+}
+section:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.42;
+  background:
+    radial-gradient(ellipse at 8% 0%,rgba(67,167,239,.09),transparent 38%),
+    radial-gradient(ellipse at 92% 100%,rgba(139,103,255,.08),transparent 38%);
+}
+section .wrap{z-index:1}
+.section-kicker{
+  color:#69d9f4!important;
+  text-shadow:0 0 22px rgba(76,203,244,.18);
+}
+.section-title,
+html[data-theme="dark"] .section-title{
+  color:#f2f7ff!important;
+  text-shadow:0 8px 32px rgba(0,0,0,.18);
+}
+.section-title span{
+  background:linear-gradient(100deg,#65e0f5 0%,#648dff 52%,#b18cff 100%)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  color:transparent!important;
+}
+.about-copy p,.module-intro,.case-intro,.insight-card>p,.github-intro,
+.about .wrap>p,.writing-card p,.github-loading{
+  color:var(--aurora-muted)!important;
+}
+.focus,.skill,.project,.edu,.language,.architecture-card,.insight-card,
+.testimonial-panel,.analytics-card,.case-card,.skills-proof>div,
+.github-stats a,.github-live,.github-repositories>article,
+.github-repositories>a,.github-repo,.writing-card,.writing-grid>article{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate;
+  border:1px solid var(--aurora-line)!important;
+  border-radius:22px!important;
+  background:
+    linear-gradient(145deg,rgba(35,65,101,.68),rgba(12,29,54,.76))!important;
+  color:#edf5ff!important;
+  box-shadow:
+    0 22px 65px rgba(0,0,0,.24),
+    inset 0 1px 0 rgba(255,255,255,.10)!important;
+  backdrop-filter:blur(24px) saturate(145%)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(145%)!important;
+}
+.focus:after,.skill:after,.project:after,.edu:after,.language:after,
+.architecture-card:after,.insight-card:after,.testimonial-panel:after,
+.analytics-card:after,.case-card:after,.github-stats a:after,
+.github-live:after,.writing-card:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(125deg,rgba(255,255,255,.075),transparent 38%,rgba(95,180,255,.035));
+}
+.skill h3,.project h3,.edu h3,.language strong,.architecture-head h3,
+.insight-card h3,.case-card h3,.testimonial-panel h3,
+.github-live h3,.writing-card h3,.github-stats strong{
+  color:#f4f8ff!important;
+}
+.skill p,.project-body>p,.edu p,.language span,.architecture-head p,
+.case-subtitle,.case-block p,.case-note,.testimonial-panel p,
+.analytics-card span,.github-stats span,.github-live p,
+.github-repositories p,.writing-card p{
+  color:#bdcde2!important;
+}
+.project-head{
+  background:linear-gradient(135deg,rgba(73,125,183,.30),rgba(83,91,173,.20))!important;
+  border-bottom:1px solid rgba(180,213,255,.13)!important;
+}
+.project-body{background:transparent!important}
+.project-link,.case-link,.insight-more a,.writing-card a,
+.github-live a,.github-repositories a{
+  color:var(--aurora-cyan)!important;
+}
+.chip,.stack span,.case-tags span,.hire-tags span,.writing-tag{
+  background:rgba(101,157,220,.13)!important;
+  border:1px solid rgba(174,211,255,.18)!important;
+  color:#dcecff!important;
+}
+.skill .symbol,.project .symbol{
+  box-shadow:0 8px 24px rgba(35,120,205,.20);
+}
+.arch-node,.arch-node.accent,.arch-node.storage{
+  background:rgba(65,119,177,.16)!important;
+  border:1px solid rgba(159,202,247,.22)!important;
+  color:#eef6ff!important;
+}
+.arch-node b{color:#f5f9ff!important}
+.arch-node span{color:#bfd0e6!important}
+.case-block,.arch-foot,.insight-card details{
+  border-color:rgba(174,208,247,.16)!important;
+}
+.analytics-card strong,.testimonial-mark{color:var(--aurora-cyan)!important}
+.github-stats a{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:108px;
+  padding:20px!important;
+  text-decoration:none!important;
+}
+.github-stats strong{color:#79e2f5!important}
+.github-live{padding:22px!important}
+.github-live-head{border-color:rgba(174,208,247,.16)!important}
+.github-live-head h3{color:#f4f8ff!important}
+.github-repositories{color:#edf5ff!important}
+.github-repositories>*,.github-repositories article,.github-repositories a{
+  border-color:rgba(169,207,255,.18)!important;
+}
+.writing-card{padding:26px!important}
+.writing-card h3{line-height:1.35}
+.writing-tag{display:inline-flex;border-radius:999px;padding:6px 10px}
+.hire-section{background:transparent!important}
+.hire-panel{
+  border:1px solid rgba(166,210,255,.22)!important;
+  background:
+    radial-gradient(ellipse at 88% 10%,rgba(65,209,242,.19),transparent 34%),
+    linear-gradient(135deg,rgba(24,54,91,.86),rgba(12,27,52,.92))!important;
+  box-shadow:0 28px 75px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.12)!important;
+  backdrop-filter:blur(24px) saturate(145%)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(145%)!important;
+}
+.contact{
+  background:
+    radial-gradient(ellipse at 15% 15%,rgba(57,145,219,.20),transparent 36%),
+    linear-gradient(140deg,rgba(5,19,39,.96),rgba(12,31,58,.94) 60%,rgba(18,25,55,.96))!important;
+}
+.contact-form,.contact-item{
+  background:rgba(255,255,255,.065)!important;
+  border-color:rgba(174,211,255,.19)!important;
+  backdrop-filter:blur(22px) saturate(140%)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(140%)!important;
+}
+footer{background:rgba(3,12,26,.92)!important;backdrop-filter:blur(18px)!important}
+.skill:hover,.project:hover,.edu:hover,.language:hover,
+.architecture-card:hover,.insight-card:hover,.analytics-card:hover,.case-card:hover,
+.github-stats a:hover,.writing-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(102,222,246,.48)!important;
+  box-shadow:0 30px 80px rgba(0,0,0,.34),0 0 28px rgba(75,190,235,.08)!important;
+}
+a,button{ -webkit-tap-highlight-color:transparent }
+@media(max-width:760px){
+  section{padding-block:66px!important}
+  .section-title{font-size:clamp(30px,8vw,42px)!important}
+  .github-stats{grid-template-columns:1fr!important}
+  .writing-grid{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .skill:hover,.project:hover,.edu:hover,.language:hover,
+  .architecture-card:hover,.insight-card:hover,.analytics-card:hover,
+  .case-card:hover,.github-stats a:hover,.writing-card:hover{transform:none}
+}
+/* Keep the same premium dark-glass visual language in both theme states. */
+html[data-theme="light"] body,
+html[data-theme="dark"] body{color:#f2f7ff!important}
+html[data-theme="light"] .section-title,
+html[data-theme="dark"] .section-title{color:#f2f7ff!important}
