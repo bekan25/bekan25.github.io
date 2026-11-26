@@ -1391,3 +1391,192 @@ html[data-theme="light"] body,html[data-theme="dark"] body{
   background:linear-gradient(145deg,#fff 0%,#f5f8fd 55%,#eef3fb 100%)!important;
   color:#17243b!important;
 }
+
+
+/* =========================================================
+   PREMIUM LIGHT AURORA — refined, cohesive portfolio finish
+   Additive visual layer: preserves all existing markup/content.
+   ========================================================= */
+:root{
+  color-scheme:light;
+  --premium-ink:#17243b;
+  --premium-muted:#64748b;
+  --premium-paper:#f7f9fd;
+  --premium-surface:rgba(255,255,255,.82);
+  --premium-line:rgba(61,91,139,.13);
+  --premium-shadow:0 18px 55px rgba(35,58,99,.09);
+}
+html{background:#f7f9fd;scroll-behavior:smooth;scroll-padding-top:92px}
+body{
+  background:
+    radial-gradient(ellipse at 8% 8%,rgba(114,164,255,.14),transparent 28%),
+    radial-gradient(ellipse at 92% 32%,rgba(177,151,255,.12),transparent 26%),
+    linear-gradient(180deg,#fbfcff 0%,#f5f8fd 52%,#fbfcff 100%)!important;
+  color:#17243b!important;
+}
+nav{
+  background:rgba(255,255,255,.82)!important;
+  border:1px solid rgba(90,116,158,.12)!important;
+  border-top:0!important;
+  box-shadow:0 10px 35px rgba(34,57,96,.07)!important;
+  backdrop-filter:blur(24px) saturate(155%)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(155%)!important;
+}
+nav .brand,nav .nav-links a{color:#17243b!important}
+nav .brand span{color:#5b75e8!important}
+nav .nav-links a:hover,nav .nav-links a.active{color:#526de0!important}
+nav .nav-tool{
+  color:#354765!important;
+  background:rgba(238,243,252,.82)!important;
+  border:1px solid rgba(91,116,158,.15)!important;
+}
+nav .menu{color:#263957!important}
+nav .nav-links .hire,.btn.primary{
+  background:linear-gradient(115deg,#526fe8,#8870e9)!important;
+  color:#fff!important;
+  box-shadow:0 10px 26px rgba(91,111,221,.23)!important;
+}
+.hero{
+  position:relative;
+  isolation:isolate;
+  min-height:620px!important;
+  background:
+    radial-gradient(ellipse at 82% 18%,rgba(119,151,255,.17),transparent 34%),
+    radial-gradient(ellipse at 15% 88%,rgba(179,151,255,.14),transparent 38%),
+    linear-gradient(135deg,#fbfcff 0%,#f1f5ff 55%,#faf8ff 100%)!important;
+  color:#17243b!important;
+}
+.hero:before{
+  opacity:.32!important;
+  background-image:linear-gradient(rgba(96,126,184,.075) 1px,transparent 1px),linear-gradient(90deg,rgba(96,126,184,.075) 1px,transparent 1px)!important;
+  mask-image:linear-gradient(110deg,black,transparent 78%)!important;
+}
+.hero .eyebrow{
+  color:#526bd0!important;
+  border-color:rgba(91,116,224,.2)!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 5px 18px rgba(57,84,140,.05);
+}
+.hero h1{color:#17243b!important}
+.hero h1 span{
+  background:linear-gradient(100deg,#426ce1 0%,#7968df 52%,#ad79cf 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+}
+.hero .role{
+  color:#455673!important;
+  background:rgba(255,255,255,.74)!important;
+  border-color:rgba(91,116,158,.16)!important;
+  box-shadow:0 5px 16px rgba(40,62,103,.04);
+}
+.hero .lead{color:#5c6b83!important}
+.hero .btn.secondary,.hire-actions .btn.secondary{
+  color:#354765!important;
+  background:rgba(255,255,255,.78)!important;
+  border:1px solid rgba(91,116,158,.2)!important;
+  box-shadow:0 7px 20px rgba(38,61,103,.055);
+}
+.profile-card{
+  border:1px solid rgba(255,255,255,.88)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(255,255,255,.62))!important;
+  box-shadow:0 28px 75px rgba(49,70,119,.13),inset 0 1px 0 #fff!important;
+  backdrop-filter:blur(26px) saturate(145%)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(145%)!important;
+  color:#17243b!important;
+}
+.profile-card h2{color:#17243b!important}
+.profile-card .sub{color:#64748b!important}
+.profile-card .fact{
+  background:rgba(240,244,252,.86)!important;
+  border-color:rgba(91,116,158,.12)!important;
+  color:#334563!important;
+}
+.profile-card .fact strong{color:#253956!important}
+.profile-card .fact span{color:#71809a!important}
+section{position:relative}
+.about,.projects,.languages{background:rgba(255,255,255,.72)!important}
+.skills,.education,.case-studies,.testimonials,.analytics,.architecture{
+  background:rgba(239,244,252,.68)!important;
+}
+.section-kicker{color:#6378d9!important}
+.section-title{color:#17243b!important}
+.about-copy p,.module-intro,.case-intro,.insight-card>p{color:#5e6d84!important}
+.focus{
+  background:linear-gradient(145deg,#edf2ff,#f8f6ff)!important;
+  border:1px solid rgba(104,125,204,.16)!important;
+  box-shadow:0 16px 42px rgba(51,72,124,.08)!important;
+}
+.focus h3,.focus p,.focus li{color:#344765!important}
+.focus li:before{color:#6979df!important}
+.skill,.project,.edu,.language,.architecture-card,.insight-card,.testimonial-panel,.analytics-card,.case-card{
+  background:rgba(255,255,255,.82)!important;
+  border:1px solid rgba(94,119,162,.14)!important;
+  box-shadow:0 12px 32px rgba(35,58,99,.055)!important;
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+.skill h3,.project h3,.edu h3,.language strong,.architecture-head h3,.insight-card h3,.case-card h3{color:#243653!important}
+.skill .symbol{background:linear-gradient(135deg,#e8efff,#f0eaff)!important;color:#6578dc!important}
+.chip,.stack span{
+  color:#52627b!important;
+  background:#f3f6fc!important;
+  border:1px solid #e2e9f4!important;
+}
+.project-link{color:#526fda!important}
+.skills-proof{
+  border:1px solid rgba(94,119,162,.14)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.66)!important;
+}
+.arch-node.accent{background:#edf2ff!important;border-color:#d7e0fb!important}
+.arch-node.storage{background:#eaf8f3!important;border-color:#d0eee2!important}
+.hire-panel{
+  background:radial-gradient(ellipse at 82% 12%,rgba(157,146,255,.2),transparent 36%),linear-gradient(130deg,#eef2ff,#f8f5ff)!important;
+  border:1px solid rgba(103,119,207,.16)!important;
+  box-shadow:0 22px 60px rgba(54,68,124,.09)!important;
+}
+.hire-panel .section-title{color:#243653!important}
+.hire-panel p{color:#5f6e86!important}
+.contact{
+  background:linear-gradient(135deg,#f0f4ff,#f9f6ff)!important;
+  color:#243653!important;
+  border-top:1px solid rgba(95,117,166,.1);
+}
+.contact .section-title{color:#243653!important}
+.contact .contact-intro,.contact .contact-note{color:#63718a!important}
+.contact-item{
+  background:rgba(255,255,255,.76)!important;
+  border:1px solid rgba(91,116,158,.15)!important;
+  color:#344765!important;
+  box-shadow:0 8px 22px rgba(38,61,103,.045);
+}
+footer{
+  background:#f7f9fd!important;
+  color:#71809a!important;
+  border-top:1px solid rgba(91,116,158,.12)!important;
+}
+footer a{color:#526fda!important}
+a:focus-visible,button:focus-visible{outline:3px solid rgba(91,111,221,.55)!important;outline-offset:3px!important}
+.skill:hover,.project:hover,.architecture-card:hover,.insight-card:hover,.contact-item:hover{
+  box-shadow:0 20px 44px rgba(44,65,112,.11)!important;
+  border-color:rgba(104,124,218,.25)!important;
+}
+@media(max-width:900px){
+  nav .nav-links{
+    background:rgba(255,255,255,.97)!important;
+    border:1px solid rgba(91,116,158,.14)!important;
+    box-shadow:0 20px 45px rgba(34,57,96,.12)!important;
+    backdrop-filter:blur(22px)!important;
+  }
+  nav .nav-links a{color:#263957!important}
+  nav .nav-links .hire{color:#fff!important}
+  .hero{min-height:auto!important}
+}
+@media(max-width:600px){
+  .hero{padding-top:88px!important;padding-bottom:64px!important}
+  .profile-card{max-width:100%!important}
+  section .wrap{width:calc(100% - 34px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
