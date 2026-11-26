@@ -1239,3 +1239,155 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 }
 /* Theme toggle remains available; visual identity stays intentionally dark-glass. */
 html[data-theme="light"] body,html[data-theme="dark"] body{color:var(--ui-text)!important}
+
+
+/* =========================================================
+   WHITE AURORA GLASS THEME — requested background refresh
+   Keeps existing sections, content and interactions intact.
+   ========================================================= */
+:root{
+  color-scheme:light;
+  --white-bg:#f7f9fd;
+  --white-ink:#17243b;
+  --white-muted:#596a82;
+  --white-line:rgba(40,69,112,.13);
+  --white-glass:rgba(255,255,255,.76);
+}
+html,body{
+  background:#f7f9fd!important;
+  color:var(--white-ink)!important;
+}
+body{
+  background:
+    radial-gradient(ellipse at 8% 4%,rgba(78,160,239,.11),transparent 34%),
+    radial-gradient(ellipse at 92% 20%,rgba(153,126,244,.10),transparent 35%),
+    linear-gradient(145deg,#ffffff 0%,#f5f8fd 55%,#eef3fb 100%)!important;
+  background-attachment:fixed!important;
+}
+body:before{
+  opacity:.20!important;
+  background-image:linear-gradient(rgba(66,103,157,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(66,103,157,.055) 1px,transparent 1px)!important;
+}
+nav{
+  background:rgba(255,255,255,.82)!important;
+  border-bottom:1px solid rgba(48,76,117,.12)!important;
+  box-shadow:0 8px 32px rgba(29,53,88,.07)!important;
+  backdrop-filter:blur(24px) saturate(150%)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(150%)!important;
+}
+nav .brand,nav .nav-links a,nav .nav-links .nav-tool{
+  color:#172b49!important;
+}
+nav .brand span{color:#287fca!important}
+nav .nav-links a:hover,nav .nav-links a.active{color:#287fca!important}
+nav .menu{color:#172b49!important;background:rgba(255,255,255,.75)!important;border-color:var(--white-line)!important}
+.hero{
+  background:
+    radial-gradient(ellipse at 78% 18%,rgba(66,178,226,.13),transparent 34%),
+    radial-gradient(ellipse at 18% 95%,rgba(138,114,255,.10),transparent 38%),
+    linear-gradient(135deg,#ffffff 0%,#f4f8ff 58%,#f8f7ff 100%)!important;
+  color:var(--white-ink)!important;
+}
+.hero:before{
+  opacity:.42!important;
+  background-image:linear-gradient(rgba(80,116,170,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(80,116,170,.055) 1px,transparent 1px)!important;
+}
+.hero:after{border-color:rgba(80,145,207,.12)!important;box-shadow:0 0 0 46px rgba(80,145,207,.025),0 0 0 92px rgba(80,145,207,.018)!important}
+.hero h1{color:#142541!important}
+.hero .eyebrow{color:#197d70!important;background:rgba(45,190,156,.09)!important;border-color:rgba(45,160,137,.22)!important}
+.hero .role{color:#40536f!important;background:rgba(255,255,255,.68)!important;border-color:rgba(55,87,132,.15)!important}
+.hero .lead{color:#536680!important}
+.hero .btn.secondary{color:#29415f!important;background:rgba(255,255,255,.72)!important;border-color:rgba(54,91,143,.2)!important}
+.profile-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(244,248,255,.68))!important;
+  border:1px solid rgba(68,107,159,.18)!important;
+  box-shadow:0 24px 70px rgba(41,68,108,.13),inset 0 1px rgba(255,255,255,.95)!important;
+  color:#172b49!important;
+}
+.profile-card h2{color:#172b49!important}
+.profile-card .sub,.profile-card .fact span{color:#60728b!important}
+.profile-card .fact{background:rgba(255,255,255,.68)!important;border-color:rgba(65,101,151,.12)!important;color:#263c5b!important}
+.profile-card .fact strong{color:#247fc2!important}
+section,section:nth-of-type(even),section:nth-of-type(even):not(.contact):not(.hire-section),
+.about,.projects,.languages,.skills,.education,.case-studies,.testimonials,
+.analytics,.architecture,.writing,.github-section,.insights{
+  background:rgba(255,255,255,.38)!important;
+  color:var(--white-ink)!important;
+  border-color:rgba(45,75,117,.07)!important;
+}
+section:before{
+  opacity:.32!important;
+  background:radial-gradient(ellipse at 8% 0%,rgba(74,153,226,.07),transparent 40%),radial-gradient(ellipse at 95% 100%,rgba(140,112,231,.06),transparent 40%)!important;
+}
+.section-kicker{color:#267ac0!important;text-shadow:none!important}
+.section-title,html[data-theme="dark"] .section-title{color:#172943!important;text-shadow:none!important}
+.about-copy p,.module-intro,.case-intro,.insight-card>p,.github-intro,
+.about .wrap>p,.writing-card p,.github-loading{color:#596b83!important}
+.focus,.skill,.project,.edu,.language,.architecture-card,.insight-card,
+.testimonial-panel,.analytics-card,.case-card,.skills-proof>div,
+.github-stats a,.github-live,.github-repositories>article,
+.github-repositories>a,.github-repo,.writing-card,.writing-grid>article,
+.repo-card,.contact-item,.contact-form{
+  background:linear-gradient(145deg,rgba(255,255,255,.91),rgba(242,247,255,.76))!important;
+  color:#243752!important;
+  border:1px solid rgba(55,91,142,.14)!important;
+  box-shadow:0 18px 48px rgba(35,62,103,.075),inset 0 1px rgba(255,255,255,.96)!important;
+  backdrop-filter:blur(22px) saturate(135%)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(135%)!important;
+}
+.focus h3,.focus p,.focus li,.skill h3,.project h3,.edu h3,
+.language strong,.architecture-head h3,.insight-card h3,.case-card h3,
+.testimonial-panel h3,.github-live h3,.writing-card h3,.github-stats strong{
+  color:#1b2f4b!important;
+}
+.focus p,.skill p,.project-body>p,.edu p,.language span,.architecture-head p,
+.case-subtitle,.case-block p,.case-note,.testimonial-panel p,
+.analytics-card span,.github-stats span,.github-live p,
+.github-repositories p,.writing-card p,.repo-card p{
+  color:#5b6d85!important;
+}
+.chip,.stack span,.case-tags span,.hire-tags span,.writing-tag{
+  background:rgba(75,139,207,.08)!important;
+  border:1px solid rgba(64,111,171,.14)!important;
+  color:#405978!important;
+}
+.project-head{background:linear-gradient(135deg,rgba(89,160,220,.12),rgba(140,121,224,.09))!important;border-color:rgba(65,103,155,.12)!important}
+.project-link,.case-link,.insight-more a,.writing-card a,.github-live a,.github-repositories a{color:#237bc4!important}
+.arch-node,.arch-node.accent,.arch-node.storage{
+  background:rgba(235,243,253,.86)!important;border:1px solid rgba(78,119,174,.17)!important;color:#29415f!important;
+}
+.arch-node b{color:#203653!important}.arch-node span{color:#62758e!important}
+.case-block,.arch-foot,.insight-card details,.github-live-head{border-color:rgba(55,91,142,.13)!important}
+.analytics-card strong,.testimonial-mark{color:#247fc2!important}
+.hire-panel{
+  background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(235,244,255,.86))!important;
+  border:1px solid rgba(63,105,163,.16)!important;
+  box-shadow:0 22px 60px rgba(35,62,103,.09)!important;
+}
+.hire-panel .section-title{color:#172943!important}
+.hire-panel p{color:#586b84!important}
+.contact{
+  background:linear-gradient(140deg,#edf4fc,#f7f9fd)!important;
+  color:#1c304c!important;
+}
+.contact .section-title{color:#172943!important}
+.contact .contact-intro,.contact .contact-note,.contact-form p,.contact-form label{color:#5c6e86!important}
+.contact-item,.contact-form{background:rgba(255,255,255,.78)!important;border-color:rgba(58,95,145,.15)!important}
+.contact-item small{color:#71829a!important}
+.contact-item strong,.contact-form h3{color:#203653!important}
+.contact-form input,.contact-form textarea{
+  background:rgba(255,255,255,.9)!important;color:#203653!important;
+  border-color:rgba(60,98,150,.2)!important;
+}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#8796aa!important}
+.form-note{color:#64768e!important}
+footer{background:rgba(255,255,255,.88)!important;color:#62738a!important;border-top:1px solid rgba(55,91,142,.12)!important}
+footer a{color:#267fc2!important}
+@media(max-width:1100px){
+  nav .nav-links{background:rgba(255,255,255,.97)!important;border-color:rgba(55,91,142,.14)!important;box-shadow:0 22px 50px rgba(25,48,82,.12)!important}
+  nav .nav-links a{color:#203653!important}
+}
+html[data-theme="light"] body,html[data-theme="dark"] body{
+  background:linear-gradient(145deg,#fff 0%,#f5f8fd 55%,#eef3fb 100%)!important;
+  color:#17243b!important;
+}
