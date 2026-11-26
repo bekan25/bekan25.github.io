@@ -1751,3 +1751,15 @@ img{max-width:100%;height:auto}
 @media(prefers-reduced-motion:reduce){
   .project-filter{transition:none}
 }
+
+
+/* Native app install affordance. */
+#installApp[hidden]{display:none!important}
+#installApp:not([hidden]){
+  border-color:rgba(82,111,232,.25)!important;
+  color:#5267d5!important;
+  background:rgba(239,243,255,.9)!important;
+}
+@media(max-width:900px){
+  #installApp:not([hidden]){width:100%;text-align:left}
+}

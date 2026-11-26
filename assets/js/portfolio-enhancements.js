@@ -94,6 +94,7 @@ const T = {
 "Live GitHub activity is loading. You can always open the profile directly.":"Sochiin GitHub live fe'amaa jira. Profile kallattiin banuu dandeessa.",
 "Please complete all fields correctly before opening WhatsApp.":"WhatsApp banuu dura maaloo dirreewwan hunda sirriitti guuti.","pushed code to":"koodii dhiyeesse","created":"uume","opened a pull request in":"pull request bane","updated an issue in":"issue haaromse","starred":"urjii kenne","forked":"fork godhe","made public":"uummataaf banaa godhe","worked on":"irratti hojjete","Public GitHub activity":"Sochii GitHub uummataa","Source code":"Madda koodii","Updated":"Haaromfame","commit(s)":"commit","Repository":"Repository",
 "Your email app is opening. Review your message and press Send to deliver it.":"Email app kee banamaa jira. Ergaa kee ilaaliitii geessuuf Send tuqi.",
+"Install app":"Appii fe’i",
 "Find a project":"Pirojektii barbaadi",
 "Search by project, technology, or keyword":"Maqaa pirojektii, teeknooloojii ykn jecha barbaadi",
 "All projects":"Pirojektoota hunda",
@@ -116,6 +117,34 @@ if(button)button.addEventListener("click",()=>apply(lang==="en"?"om":"en"));
 const observer=new MutationObserver(rs=>rs.forEach(r=>r.addedNodes.forEach(n=>{if(n.nodeType===3)translateNode(n);else if(n.nodeType===1)walk(n);})));
 observer.observe(document.body,{childList:true,subtree:true});apply(saved);
 
+
+
+// Progressive Web App: install prompt and safe same-origin offline shell.
+if("serviceWorker" in navigator && location.protocol==="https:"){
+  window.addEventListener("load",()=>{
+    navigator.serviceWorker.register("/service-worker.js").catch(()=>{});
+  });
+}
+let installPromptEvent=null;
+const installButton=document.getElementById("installApp");
+if(installButton){
+  window.addEventListener("beforeinstallprompt",event=>{
+    event.preventDefault();
+    installPromptEvent=event;
+    installButton.hidden=false;
+  });
+  installButton.addEventListener("click",async()=>{
+    if(!installPromptEvent)return;
+    installPromptEvent.prompt();
+    await installPromptEvent.userChoice;
+    installPromptEvent=null;
+    installButton.hidden=true;
+  });
+  window.addEventListener("appinstalled",()=>{
+    installPromptEvent=null;
+    installButton.hidden=true;
+  });
+}
 
 // Accessible project search and category filters.
 const projectGrid=document.querySelector(".project-grid");
