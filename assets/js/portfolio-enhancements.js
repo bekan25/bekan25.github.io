@@ -93,7 +93,17 @@ const T = {
 "Open the repository directly to view its source and current status.":"Madda koodii fi haala ammaa ilaaluuf repository kallattiin bani.",
 "Live GitHub activity is loading. You can always open the profile directly.":"Sochiin GitHub live fe'amaa jira. Profile kallattiin banuu dandeessa.",
 "Please complete all fields correctly before opening WhatsApp.":"WhatsApp banuu dura maaloo dirreewwan hunda sirriitti guuti.","pushed code to":"koodii dhiyeesse","created":"uume","opened a pull request in":"pull request bane","updated an issue in":"issue haaromse","starred":"urjii kenne","forked":"fork godhe","made public":"uummataaf banaa godhe","worked on":"irratti hojjete","Public GitHub activity":"Sochii GitHub uummataa","Source code":"Madda koodii","Updated":"Haaromfame","commit(s)":"commit","Repository":"Repository",
-"Your email app is opening. Review your message and press Send to deliver it.":"Email app kee banamaa jira. Ergaa kee ilaaliitii geessuuf Send tuqi."
+"Your email app is opening. Review your message and press Send to deliver it.":"Email app kee banamaa jira. Ergaa kee ilaaliitii geessuuf Send tuqi.",
+"Find a project":"Pirojektii barbaadi",
+"Search by project, technology, or keyword":"Maqaa pirojektii, teeknooloojii ykn jecha barbaadi",
+"All projects":"Pirojektoota hunda",
+"Full-stack":"Full-stack",
+"AI & learning":"AI fi barnoota",
+"Commerce":"Daldala",
+"Management":"Bulchiinsa",
+"Showing all 9 projects":"Pirojektoota 9 hunda agarsiisaa",
+"No projects match your search. Try another keyword or category.":"Pirojektiin barbaacha kee waliin walsimu hin jiru. Jecha ykn ramaddii biraa yaali.",
+
 };
 const originalNodes=new WeakMap(),originalAttrs=new WeakMap();
 let lang="en";
@@ -105,6 +115,53 @@ let saved="en";try{saved=localStorage.getItem("dereje-language")||"en";}catch{}
 if(button)button.addEventListener("click",()=>apply(lang==="en"?"om":"en"));
 const observer=new MutationObserver(rs=>rs.forEach(r=>r.addedNodes.forEach(n=>{if(n.nodeType===3)translateNode(n);else if(n.nodeType===1)walk(n);})));
 observer.observe(document.body,{childList:true,subtree:true});apply(saved);
+
+
+// Accessible project search and category filters.
+const projectGrid=document.querySelector(".project-grid");
+if(projectGrid){
+  const cards=Array.from(projectGrid.querySelectorAll(".project"));
+  const search=document.getElementById("project-search");
+  const filters=Array.from(document.querySelectorAll("[data-project-filter]"));
+  const result=document.getElementById("project-results");
+  let activeCategory="all";
+  const normalise=value=>String(value||"").toLocaleLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"");
+  const applyProjectFilters=()=>{
+    const term=normalise(search?.value.trim());
+    let visible=0;
+    cards.forEach(card=>{
+      const category=card.dataset.projectCategory||"";
+      const matchesCategory=activeCategory==="all"||category===activeCategory;
+      const matchesTerm=!term||normalise(card.textContent).includes(term);
+      const show=matchesCategory&&matchesTerm;
+      card.hidden=!show;
+      if(show)visible++;
+    });
+    if(result){
+      if(lang==="om"){
+        result.textContent=visible
+          ? (term||activeCategory!=="all" ? "Pirojektoota "+visible+"/"+cards.length+" agarsiisaa" : "Pirojektoota "+cards.length+" hunda agarsiisaa")
+          : T["No projects match your search. Try another keyword or category."];
+      }else{
+        result.textContent=visible
+          ? (term||activeCategory!=="all" ? "Showing "+visible+" of "+cards.length+" projects" : "Showing all "+cards.length+" projects")
+          : "No projects match your search. Try another keyword or category.";
+      }
+    }
+  };
+  filters.forEach(button=>button.addEventListener("click",()=>{
+    activeCategory=button.dataset.projectFilter||"all";
+    filters.forEach(item=>{
+      const selected=item===button;
+      item.classList.toggle("is-active",selected);
+      item.setAttribute("aria-pressed",String(selected));
+    });
+    applyProjectFilters();
+  }));
+  if(search)search.addEventListener("input",applyProjectFilters);
+  document.getElementById("langToggle")?.addEventListener("click",applyProjectFilters);
+  applyProjectFilters();
+}
 
 // GitHub: timeout, separate requests, persistent cache, and verified repository links as fallback.
 const username="bekan25",cacheKey="dereje-github-cache-v2",profile="https://github.com/"+username;
