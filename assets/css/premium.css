@@ -1763,3 +1763,11 @@ img{max-width:100%;height:auto}
 @media(max-width:900px){
   #installApp:not([hidden]){width:100%;text-align:left}
 }
+
+
+/* Verified milestones section — consistent with the light Aurora cards. */
+.achievements{background:rgba(239,244,252,.68)!important}
+.achievements .edu-grid{align-items:stretch}
+.achievements .edu{height:100%;display:flex;flex-direction:column}
+.achievements .edu .label{margin-top:auto;align-self:flex-start}
+@media(max-width:760px){.achievements .edu-grid{grid-template-columns:1fr}}
