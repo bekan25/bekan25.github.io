@@ -1,45 +1,63 @@
-# Dereje Solomon — Portfolio
+# Dereje Solomon — Official Portfolio
 
-Personal portfolio website for Dereje Solomon, Full-Stack Developer and Writer.
+The official personal portfolio of **Dereje Solomon Teferi**, a Full-Stack Developer, Computer Science student, and writer based in Ethiopia.
 
-**Live website:** https://bekan25.github.io/
+🌐 **Live website:** https://bekan25.github.io/  
+💻 **GitHub:** https://github.com/bekan25  
+💼 **LinkedIn:** https://www.linkedin.com/in/dereje-solomon-9a6230370  
+✉️ **Email:** Derejesolomon363@gmail.com
 
-## Features
+## Portfolio contents
 
-- Evidence-led engineering case studies for selected projects (no invented performance metrics)
-- High-level architecture diagrams for NEXORAS and BARNOOTAAI360
-- Technical insight articles with expandable reading notes
-- Skills evidence groupings that avoid invented proficiency percentages
-- Hire-me / collaboration section and a recommendation area reserved for genuine testimonials
-- English / Afaan Oromoo language toggle for key navigation and introduction copy
-- Light / dark theme toggle with a locally saved preference
-- Privacy-first local activity counters (stored only in the visitor's browser; not global analytics)
+- Professional introduction and contact information.
+- Technical skills grouped by practical focus, without invented proficiency scores.
+- Selected software projects and their current development status.
+- Engineering case studies and high-level architecture notes.
+- Technical writing and the MURANNOO book project.
+- Education, credentials, language information, and downloadable CV.
+- English / Afaan Oromoo interface support for key navigation and introduction copy.
+- Light / dark appearance preference saved locally in the visitor's browser.
+- Responsive layout, accessibility support, SEO metadata, sitemap, and web app manifest.
 
-- Responsive Swiss editorial minimalist design with mobile navigation
-- Profile, about, technical skills, projects, education, languages, and contact details
-- Downloadable CV PDF in `assets/Dereje_Solomon_CV.pdf`
-- Public GitHub repository cards and recent public activity loaded from the GitHub REST API
-- Contact form powered by FormSubmit (first-time email activation is required)
-- SEO metadata, canonical URL, Open Graph/Twitter metadata, and Person structured data
-- Sitemap, robots.txt, web app manifest, accessible skip link, visible focus states, and reduced-motion support
-- Writing section featuring the MURANNOO book project and Dera Tech Hub
+## Featured projects
 
-## Built with
+| Project | Focus | Status |
+|---|---|---|
+| MERKATO | Ethiopian buyer / seller marketplace | In development |
+| NEXORAS | Community and opportunity platform | In development |
+| BARNOOTAAI360 | Multilingual, offline-first learning concept | In development |
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
+Other projects are listed with their available public repositories or a contact link when the source repository is private. Project descriptions are intended to communicate current scope honestly; they do not imply unfinished integrations or features are already live.
+
+## Technology
+
+- HTML5, CSS3, and vanilla JavaScript
 - GitHub Pages
-- GitHub REST API
-- FormSubmit contact form service
+- GitHub REST API for public repository/activity information
+- Python standard library and Node.js for automated quality checks
+
+## Contact form behaviour
+
+This is a static GitHub Pages website. The contact form prepares a message in the visitor's email application, and the WhatsApp action opens a WhatsApp conversation. The visitor reviews and sends the message; the website does not claim to deliver or store messages on its own.
 
 ## Local preview
 
-Open `index.html` in a browser. No build step or package installation is required.
+Open `index.html` in a browser. No package installation or build step is required.
+
+## Quality checks
+
+Run the dependency-free smoke checks locally:
+
+```bash
+python scripts/validate_portfolio.py
+node --check assets/js/portfolio-enhancements.js
+```
+
+GitHub Actions also runs the portfolio validation workflow for changes on the main branch and design branches.
 
 ## Deployment
 
-GitHub Pages publishes the root of the `main` branch. Changes pushed to `main` are deployed automatically when Pages is configured for that branch and folder.
+The official site is hosted by GitHub Pages at the root URL above. The current published site is based on the repository's configured Pages source. Design changes are validated on a separate branch before they are considered for the main branch.
 
 ## Contact
 
@@ -52,6 +70,6 @@ GitHub Pages publishes the root of the `main` branch. Changes pushed to `main` a
 
 ## Notes
 
-- GitHub API rate limits or network issues can temporarily prevent live repository/activity data from loading; the profile links remain available.
-- The contact form requires one-time FormSubmit email activation before it can deliver messages.
-- Project screenshots and verified live-demo URLs should be added only when real project captures and deployed URLs are available.
+- Public GitHub activity can be temporarily limited by GitHub API rate limits or network availability.
+- Testimonials are not fabricated; the section is reserved for genuine recommendations.
+- Project screenshots and live-demo links should be added only when authentic assets and working deployments are available.
