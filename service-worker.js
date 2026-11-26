@@ -43,7 +43,7 @@ self.addEventListener("fetch",event=>{
         }
         return response;
       }).catch(async()=>{
-        return (await caches.match(request)) || (await caches.match("/")) || caches.match("/offline.html");
+        return (await caches.match(request)) || (await caches.match("/offline.html")) || caches.match("/");
       })
     );
     return;
