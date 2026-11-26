@@ -16,7 +16,6 @@ class PortfolioParser(HTMLParser):
         self.ids = []
         self.references = []
         self.images_without_alt = []
-        self.headings = []
         self.in_title = False
         self.title = ""
 
@@ -57,7 +56,7 @@ parser.close()
 
 if not parser.title.strip():
     fail("The page title is empty")
-if not re.search(r'<meta\s+name=["\\']description["\\']\s+content=["\\'][^"\\']{40,}', source, re.I):
+if not re.search(r"<meta\s+name=['\"]description['\"]\s+content=['\"][^'\"]{40,}", source, re.I):
     fail("A meaningful meta description is missing")
 if 'rel="canonical"' not in source:
     fail("Canonical URL is missing")
@@ -76,17 +75,16 @@ for tag, raw in parser.references:
     if not target.is_file():
         fail(f"Broken local {tag} reference: {raw}")
 
-for href in re.findall(r'href=["\\']#([^"\\']+)', source):
+for href in re.findall(r"href=['\"]#([^'\"]+)", source):
     if href not in parser.ids:
         fail(f"Anchor target does not exist: #{href}")
 
-# Validate external and inline JavaScript syntax using Node.js when available.
 if subprocess.run(["node", "--version"], capture_output=True, text=True).returncode == 0:
     js = ROOT / "assets/js/portfolio-enhancements.js"
     result = subprocess.run(["node", "--check", str(js)], capture_output=True, text=True)
     if result.returncode:
         fail("External JavaScript syntax error: " + result.stderr.strip())
-    inline_scripts = re.findall(r"<script(?:\\s[^>]*)?>([\\s\\S]*?)</script>", source, re.I)
+    inline_scripts = re.findall(r"<script(?:\s[^>]*)?>([\s\S]*?)</script>", source, re.I)
     for index, script in enumerate(inline_scripts):
         if not script.strip():
             continue
@@ -105,4 +103,4 @@ if ERRORS:
         print(" - " + error)
     sys.exit(1)
 
-print(f"Portfolio smoke tests passed: {len(parser.references)} local/external references inspected; {len(parser.ids)} IDs checked.")
+print(f"Portfolio smoke tests passed: {len(parser.references)} references inspected; {len(parser.ids)} IDs checked.")
