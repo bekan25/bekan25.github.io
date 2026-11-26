@@ -986,3 +986,235 @@ html[data-theme="light"] body,
 html[data-theme="dark"] body{color:#f2f7ff!important}
 html[data-theme="light"] .section-title,
 html[data-theme="dark"] .section-title{color:#f2f7ff!important}
+
+
+/* =========================================================
+   SIGNATURE AURORA GLASS — COMPLETE PORTFOLIO FINISH
+   Final visual pass: consistent surfaces, readable type,
+   refined interaction, and responsive layouts.
+   CSS-only: preserves every existing section and behavior.
+   ========================================================= */
+:root{
+  --signature-bg:#061225;
+  --signature-panel:rgba(14,32,58,.72);
+  --signature-panel-hi:rgba(22,46,78,.78);
+  --signature-border:rgba(170,211,255,.20);
+  --signature-text:#f4f8ff;
+  --signature-muted:#bdcde2;
+  --signature-cyan:#70e4f6;
+  --signature-violet:#a997ff;
+}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{
+  min-width:320px;
+  color:var(--signature-text)!important;
+  background-color:var(--signature-bg)!important;
+  background-image:
+    radial-gradient(ellipse at 7% 8%,rgba(40,143,221,.20),transparent 30%),
+    radial-gradient(ellipse at 94% 22%,rgba(120,81,232,.16),transparent 32%),
+    radial-gradient(ellipse at 50% 82%,rgba(36,189,208,.09),transparent 38%),
+    linear-gradient(145deg,#061225,#0a1b34 48%,#0b1530)!important;
+  background-attachment:fixed!important;
+}
+::selection{background:rgba(93,211,244,.32);color:#fff}
+a{transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease,box-shadow .2s ease}
+button{font:inherit;cursor:pointer}
+nav{
+  position:sticky!important;top:0;z-index:1000;
+  background:rgba(5,17,36,.78)!important;
+  border-bottom:1px solid rgba(163,206,255,.16)!important;
+  box-shadow:0 12px 40px rgba(0,0,0,.22)!important;
+  backdrop-filter:blur(26px) saturate(160%)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(160%)!important;
+}
+nav .nav-inner{max-width:1320px!important}
+nav .brand{font-weight:850!important;letter-spacing:-.075em!important}
+nav .nav-links a,nav .nav-links .nav-tool{
+  min-height:40px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:12px!important;transition:all .2s ease;
+}
+nav .nav-links a:hover,nav .nav-links .nav-tool:hover{
+  background:rgba(112,228,246,.09)!important;
+  box-shadow:inset 0 0 0 1px rgba(112,228,246,.15);
+}
+nav .nav-links .hire{
+  padding:10px 17px!important;
+  color:#fff!important;
+}
+nav .menu{border:1px solid var(--signature-border)!important}
+.hero{
+  isolation:isolate;
+  position:relative;
+  min-height:clamp(620px,82vh,820px)!important;
+}
+.hero:after{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  width:360px;height:360px;right:8%;top:12%;
+  border-radius:50%;
+  background:rgba(77,157,255,.12);filter:blur(95px);
+}
+.hero .eyebrow{backdrop-filter:blur(12px)}
+.hero .lead{max-width:640px!important}
+.profile-card{
+  border-color:rgba(178,218,255,.25)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,255,255,.045))!important;
+  box-shadow:0 34px 90px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.15)!important;
+  backdrop-filter:blur(30px) saturate(155%)!important;
+}
+.profile-card .avatar{box-shadow:0 14px 35px rgba(0,0,0,.22)}
+section{
+  position:relative;isolation:isolate;
+  overflow:clip;
+  border-top:1px solid rgba(176,211,255,.055)!important;
+  border-bottom:1px solid rgba(176,211,255,.055)!important;
+}
+section .wrap{position:relative;z-index:2}
+section .section-title{max-width:900px}
+.section-kicker{letter-spacing:.19em!important}
+.section-title{font-weight:800!important}
+.about-copy p,.module-intro,.case-intro,.github-intro,.contact-intro,
+.insight-card>p,.case-block p,.case-note,.project-body>p{
+  color:var(--signature-muted)!important;
+}
+.focus,.skill,.project,.edu,.language,.architecture-card,.insight-card,
+.testimonial-panel,.analytics-card,.case-card,.skills-proof>div,
+.github-stats a,.github-live,.github-repositories>article,
+.github-repositories>a,.github-repo,.writing-card,.writing-grid>article,
+.contact-item,.contact-form{
+  border:1px solid var(--signature-border)!important;
+  background:linear-gradient(145deg,rgba(28,56,91,.72),rgba(9,25,48,.80))!important;
+  box-shadow:0 20px 55px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.075)!important;
+  backdrop-filter:blur(26px) saturate(150%)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(150%)!important;
+}
+.skill,.project,.edu,.language,.architecture-card,.insight-card,
+.testimonial-panel,.analytics-card,.case-card,.writing-card{
+  transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease!important;
+}
+.skill:hover,.project:hover,.edu:hover,.language:hover,.architecture-card:hover,
+.insight-card:hover,.testimonial-panel:hover,.analytics-card:hover,
+.case-card:hover,.writing-card:hover{
+  transform:translateY(-7px)!important;
+  border-color:rgba(112,228,246,.48)!important;
+  box-shadow:0 30px 75px rgba(0,0,0,.30),0 0 32px rgba(73,190,235,.09)!important;
+}
+.skill h3,.project h3,.edu h3,.architecture-head h3,.insight-card h3,
+.case-card h3,.writing-card h3,.testimonial-panel h3{color:#f6f9ff!important}
+.skill p,.edu p,.language span,.architecture-head p,.testimonial-panel p,
+.analytics-card span,.github-stats span,.github-live p,.writing-card p{
+  color:#c0d0e5!important;
+}
+.project-head{
+  background:linear-gradient(135deg,rgba(67,142,202,.27),rgba(117,91,211,.20))!important;
+}
+.project-num,.case-index,.insight-tag,.writing-tag{color:#9deafa!important}
+.status,.case-state{
+  border:1px solid rgba(112,228,246,.22)!important;
+  background:rgba(56,189,210,.10)!important;
+  color:#a8eff7!important;
+}
+.chip,.stack span,.case-tags span,.hire-tags span,.writing-tag{
+  border-radius:999px!important;
+  padding:7px 11px!important;
+  background:rgba(104,155,220,.12)!important;
+  border:1px solid rgba(175,211,255,.19)!important;
+  color:#e0edff!important;
+}
+.focus h3,.focus p,.focus li{color:#f0f6ff!important}
+.focus li:before{color:var(--signature-cyan)!important}
+.case-block,.arch-foot,.github-live-head{border-color:rgba(174,208,247,.16)!important}
+.arch-node,.arch-node.accent,.arch-node.storage{
+  border-radius:15px!important;
+  background:rgba(63,119,179,.17)!important;
+  border-color:rgba(159,202,247,.24)!important;
+}
+.project-link,.case-link,.insight-more a,.writing-card a,
+.github-live a,.github-repositories a{color:var(--signature-cyan)!important}
+.project-link:hover,.writing-card a:hover,.github-live a:hover{text-shadow:0 0 18px rgba(112,228,246,.42)}
+.github-stats a{min-height:116px!important}
+.github-stats strong,.analytics-card strong,.testimonial-mark{color:var(--signature-cyan)!important}
+.hire-section{background:transparent!important}
+.hire-panel{
+  border:1px solid rgba(166,210,255,.25)!important;
+  border-radius:28px!important;
+  background:radial-gradient(ellipse at 90% 5%,rgba(65,209,242,.20),transparent 35%),linear-gradient(135deg,rgba(24,54,91,.88),rgba(12,27,52,.94))!important;
+  box-shadow:0 30px 85px rgba(0,0,0,.30),inset 0 1px rgba(255,255,255,.12)!important;
+  backdrop-filter:blur(28px)!important;
+}
+.contact{
+  background:radial-gradient(ellipse at 12% 12%,rgba(57,145,219,.20),transparent 38%),linear-gradient(140deg,rgba(5,19,39,.97),rgba(12,31,58,.95) 60%,rgba(18,25,55,.97))!important;
+}
+.contact-form{padding:clamp(20px,3vw,32px)!important;border-radius:24px!important}
+.contact-form input,.contact-form textarea,.contact-form select,
+input,textarea,select{
+  max-width:100%;
+}
+.contact-form input,.contact-form textarea,.contact-form select{
+  width:100%;min-height:48px;padding:13px 15px;
+  border:1px solid rgba(175,211,255,.22)!important;border-radius:13px!important;
+  background:rgba(4,16,34,.58)!important;color:#f3f8ff!important;
+  outline:none;box-shadow:inset 0 1px 4px rgba(0,0,0,.12);
+}
+.contact-form textarea{min-height:145px;resize:vertical}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#93a9c5}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{
+  border-color:rgba(112,228,246,.72)!important;
+  box-shadow:0 0 0 3px rgba(112,228,246,.12)!important;
+}
+.contact-form label,.contact .label{color:#dce9fa!important}
+.contact-item{border-radius:16px!important}
+.btn,.hire-actions .btn{
+  min-height:48px;border-radius:999px!important;
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease!important;
+}
+.btn:hover,.hire-actions .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.primary{color:#fff!important}
+.btn.secondary{border:1px solid rgba(203,225,255,.25)!important;background:rgba(255,255,255,.065)!important}
+footer{
+  background:rgba(3,12,26,.94)!important;
+  border-top:1px solid rgba(174,211,255,.12)!important;
+  color:#bdcde2!important;
+  backdrop-filter:blur(24px)!important;
+}
+footer a{color:#8fe7f5!important}
+.skip-link:focus{
+  z-index:2000;position:fixed;top:12px;left:12px;
+  padding:12px 18px;border-radius:12px;background:#fff;color:#061225!important;
+}
+:focus-visible{outline:2px solid #70e4f6;outline-offset:3px}
+img{max-width:100%}
+@media(min-width:1500px){
+  section .wrap{width:min(1220px,calc(100% - 80px))!important}
+}
+@media(max-width:1100px){
+  nav .nav-links{width:min(620px,calc(100vw - 32px))!important}
+  .hero{min-height:0!important}
+}
+@media(max-width:760px){
+  body{background-attachment:scroll!important}
+  nav{height:68px!important}
+  section{padding-block:64px!important}
+  section .wrap{width:calc(100% - 34px)!important}
+  .hero{padding-top:54px!important;padding-bottom:54px!important}
+  .hero h1{letter-spacing:-.065em!important}
+  .section-title{margin-bottom:24px!important}
+  .contact-form{padding:18px!important}
+  .hire-panel{padding:clamp(22px,6vw,34px)!important}
+}
+@media(max-width:420px){
+  nav{padding-inline:14px!important}
+  nav .brand{font-size:17px!important}
+  section .wrap{width:calc(100% - 28px)!important}
+  .profile-card{border-radius:20px!important}
+  .section-title{font-size:29px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+@supports not ((backdrop-filter:blur(2px))){
+  .skill,.project,.edu,.language,.architecture-card,.insight-card,
+  .testimonial-panel,.analytics-card,.case-card,.writing-card,.contact-form{
+    background:#122b4c!important;
+  }
+}
