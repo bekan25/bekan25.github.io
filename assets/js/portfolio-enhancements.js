@@ -93,7 +93,7 @@ const T = {
 "Open the repository directly to view its source and current status.":"Madda koodii fi haala ammaa ilaaluuf repository kallattiin bani.",
 "Live GitHub activity is loading. You can always open the profile directly.":"Sochiin GitHub live fe'amaa jira. Profile kallattiin banuu dandeessa.",
 "Please complete all fields correctly before opening WhatsApp.":"WhatsApp banuu dura maaloo dirreewwan hunda sirriitti guuti.","pushed code to":"koodii dhiyeesse","created":"uume","opened a pull request in":"pull request bane","updated an issue in":"issue haaromse","starred":"urjii kenne","forked":"fork godhe","made public":"uummataaf banaa godhe","worked on":"irratti hojjete","Public GitHub activity":"Sochii GitHub uummataa","Source code":"Madda koodii","Updated":"Haaromfame","commit(s)":"commit","Repository":"Repository",
-"Your email app is opening. Review your message and press Send to deliver it.":"Email app kee banamaa jira. Ergaa kee ilaaliitii geessuuf Send tuqi."
+"Your email app is opening. Review your message and press Send to deliver it.":"Email app kee banamaa jira. Ergaa kee ilaaliitii geessuuf Send tuqi.",
 "Find a project":"Pirojektii barbaadi",
 "Search by project, technology, or keyword":"Maqaa pirojektii, teeknooloojii ykn jecha barbaadi",
 "All projects":"Pirojektoota hunda",
@@ -137,9 +137,17 @@ if(projectGrid){
       card.hidden=!show;
       if(show)visible++;
     });
-    if(result)result.textContent=visible
-      ? (term||activeCategory!=="all" ? "Showing "+visible+" of "+cards.length+" projects" : "Showing all "+cards.length+" projects")
-      : "No projects match your search. Try another keyword or category.";
+    if(result){
+      if(lang==="om"){
+        result.textContent=visible
+          ? (term||activeCategory!=="all" ? "Pirojektoota "+visible+"/"+cards.length+" agarsiisaa" : "Pirojektoota "+cards.length+" hunda agarsiisaa")
+          : T["No projects match your search. Try another keyword or category."];
+      }else{
+        result.textContent=visible
+          ? (term||activeCategory!=="all" ? "Showing "+visible+" of "+cards.length+" projects" : "Showing all "+cards.length+" projects")
+          : "No projects match your search. Try another keyword or category.";
+      }
+    }
   };
   filters.forEach(button=>button.addEventListener("click",()=>{
     activeCategory=button.dataset.projectFilter||"all";
@@ -151,6 +159,7 @@ if(projectGrid){
     applyProjectFilters();
   }));
   if(search)search.addEventListener("input",applyProjectFilters);
+  document.getElementById("langToggle")?.addEventListener("click",applyProjectFilters);
   applyProjectFilters();
 }
 
