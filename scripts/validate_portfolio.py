@@ -18,6 +18,10 @@ class PortfolioParser(HTMLParser):
         self.images_without_alt = []
         self.in_title = False
         self.title = ""
+        self.inline_scripts = []
+        self.in_script = False
+        self.script_type = ""
+        self.script_buffer = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -32,14 +36,25 @@ class PortfolioParser(HTMLParser):
             self.images_without_alt.append(attrs.get("src", "(unknown image)"))
         if tag == "title":
             self.in_title = True
+        if tag == "script":
+            self.in_script = True
+            self.script_type = attrs.get("type", "").lower()
+            self.script_buffer = []
 
     def handle_endtag(self, tag):
         if tag == "title":
             self.in_title = False
+        if tag == "script" and self.in_script:
+            if self.script_type != "application/ld+json":
+                self.inline_scripts.append("".join(self.script_buffer))
+            self.in_script = False
+            self.script_type = ""
 
     def handle_data(self, data):
         if self.in_title:
             self.title += data
+        if self.in_script:
+            self.script_buffer.append(data)
 
 def fail(message):
     ERRORS.append(message)
@@ -84,8 +99,7 @@ if subprocess.run(["node", "--version"], capture_output=True, text=True).returnc
     result = subprocess.run(["node", "--check", str(js)], capture_output=True, text=True)
     if result.returncode:
         fail("External JavaScript syntax error: " + result.stderr.strip())
-    inline_scripts = re.findall(r"<script(?:\s[^>]*)?>([\s\S]*?)</script>", source, re.I)
-    for index, script in enumerate(inline_scripts):
+    for index, script in enumerate(parser.inline_scripts):
         if not script.strip():
             continue
         with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8") as handle:
