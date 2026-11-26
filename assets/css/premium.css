@@ -1916,3 +1916,80 @@ html[data-theme="dark"] .testimonial-panel p,html[data-theme="dark"] .analytics-
 html[data-theme="dark"] .chip,html[data-theme="dark"] .stack span{background:#174a38!important;border-color:#326f52!important;color:#d8f0df!important}
 html[data-theme="dark"] .project-link{color:#7be4b1!important}
 html[data-theme="dark"] footer{background:#031710!important}
+
+
+/* ACCESSIBILITY PASS: clear typography contrast over emerald/gold surfaces */
+:root{
+  --premium-ink:#17231e;
+  --premium-muted:#56645d;
+  --premium-paper:#f7f8f5;
+}
+body{color:#17231e!important}
+.section-title,.section-title span{color:#12392d!important}
+.section-title span{
+  background:none!important;
+  -webkit-text-fill-color:#08734f!important;
+}
+.section-kicker{color:#086b49!important}
+.about-copy p,.module-intro,.case-intro,.insight-card>p,
+.skill p,.project-body>p,.edu p,.language span,.architecture-head p,
+.case-subtitle,.case-block p,.case-note,.testimonial-panel p,.analytics-card span{
+  color:#4b5b52!important;
+}
+.skill h3,.project h3,.edu h3,.language strong,.architecture-head h3,
+.insight-card h3,.case-card h3,.testimonial-panel h3{color:#142d22!important}
+.skill,.project,.edu,.language,.architecture-card,.insight-card,
+.testimonial-panel,.analytics-card,.case-card,.skills-proof>div{
+  color:#17231e!important;
+  background:#fff!important;
+  border-color:#d9e4dc!important;
+}
+.chip,.stack span,.case-tags span,.hire-tags span{
+  color:#244b37!important;background:#edf4ee!important;border-color:#cbdccf!important;
+}
+.project-link,.case-link,.insight-more a{color:#006b48!important;font-weight:700!important}
+.status.build,.case-state{color:#075d3d!important;background:#e6f3e9!important}
+.hero h1 span{
+  background:none!important;
+  -webkit-text-fill-color:#a9edc8!important;
+  color:#a9edc8!important;
+}
+.hero .eyebrow{color:#d6f7e3!important}
+.hero .role{color:#f1faf4!important}
+.hero .btn.primary,.btn.primary,nav .nav-links .hire{
+  color:#fff!important;
+  background:linear-gradient(115deg,#006b49,#07895d)!important;
+}
+.hero .btn.secondary,.hire-actions .btn.secondary{color:#fff!important}
+.focus h3,.focus p,.focus li{color:#fff!important}
+.focus li:before{color:#f1cc79!important}
+.hire-panel .section-title,.hire-panel .section-title span{color:#fff!important;-webkit-text-fill-color:#fff!important}
+.hire-panel p{color:#e5f3e9!important}
+.contact,.contact *{color:#f4fbf6}
+.contact a{color:#d5f0df!important}
+.contact-item{background:rgba(255,255,255,.10)!important}
+.contact-form input,.contact-form textarea{
+  color:#fff!important;background:rgba(255,255,255,.10)!important;
+  border-color:rgba(230,247,236,.35)!important;
+}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#d2e6d9!important;opacity:1}
+footer,footer p,footer span{color:#e5f1e9!important}
+footer a{color:#f0d58e!important}
+nav .brand,nav .nav-links a{color:#f4fbf6!important}
+nav .nav-links a:hover,nav .nav-links a.active{color:#8de7b9!important}
+html[data-theme="dark"] .section-title span{
+  background:none!important;-webkit-text-fill-color:#83e2ae!important;color:#83e2ae!important;
+}
+html[data-theme="dark"] .about-copy p,html[data-theme="dark"] .module-intro,
+html[data-theme="dark"] .case-intro,html[data-theme="dark"] .insight-card>p,
+html[data-theme="dark"] .architecture-head p,html[data-theme="dark"] .testimonial-panel p,
+html[data-theme="dark"] .analytics-note{color:#c6ddd0!important}
+html[data-theme="dark"] .skill h3,html[data-theme="dark"] .project h3,
+html[data-theme="dark"] .edu h3,html[data-theme="dark"] .language strong,
+html[data-theme="dark"] .architecture-head h3,html[data-theme="dark"] .insight-card h3,
+html[data-theme="dark"] .case-card h3{color:#f1faf4!important}
+html[data-theme="dark"] .skill p,html[data-theme="dark"] .project-body>p,
+html[data-theme="dark"] .edu p,html[data-theme="dark"] .language span,
+html[data-theme="dark"] .case-subtitle,html[data-theme="dark"] .case-block p{
+  color:#c6ddd0!important;
+}
