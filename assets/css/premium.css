@@ -1580,3 +1580,93 @@ a:focus-visible,button:focus-visible{outline:3px solid rgba(91,111,221,.55)!impo
   html{scroll-behavior:auto}
   *,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
+
+
+/* =========================================================
+   LIGHT AURORA FINISH — responsive, accessible interaction
+   Additive CSS only; preserve the established light palette.
+   ========================================================= */
+:root{
+  --aurora-focus:#526fe8;
+  --aurora-focus-ring:rgba(82,111,232,.22);
+}
+html{scroll-padding-top:100px}
+body{min-width:320px}
+nav{position:sticky!important;top:0;z-index:1000}
+a,button,.btn,.nav-tool{
+  -webkit-tap-highlight-color:transparent;
+}
+:where(a,button,input,textarea,select,[tabindex]):focus-visible{
+  outline:3px solid var(--aurora-focus)!important;
+  outline-offset:3px!important;
+}
+.btn,.nav-links a,.nav-tool{
+  min-height:44px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+}
+.contact-form input,.contact-form textarea,.contact-form select{
+  box-sizing:border-box;
+  max-width:100%;
+  min-height:48px;
+  border-radius:13px!important;
+  background:rgba(255,255,255,.94)!important;
+  color:#203653!important;
+  border:1px solid rgba(60,98,150,.22)!important;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{
+  border-color:var(--aurora-focus)!important;
+  box-shadow:0 0 0 4px var(--aurora-focus-ring)!important;
+  outline:0!important;
+}
+.contact-form input::placeholder,.contact-form textarea::placeholder{
+  color:#7889a1!important;
+  opacity:1;
+}
+img{max-width:100%;height:auto}
+.project,.skill,.edu,.language,.architecture-card,.insight-card,
+.case-card,.testimonial-panel,.analytics-card,.writing-card,.contact-item{
+  min-width:0;
+}
+@media(max-width:760px){
+  html{scroll-padding-top:78px}
+  nav{height:68px!important}
+  .hero{min-height:0!important}
+  .hero .actions{flex-wrap:wrap}
+  .hero .actions .btn{min-height:48px}
+  .profile-card{width:100%;box-sizing:border-box}
+  .contact-form{min-width:0}
+  .contact-form input,.contact-form textarea,.contact-form select{font-size:16px}
+}
+@media(max-width:380px){
+  .hero h1{overflow-wrap:anywhere}
+  .hero .actions .btn{width:100%}
+  .profile-card{padding:16px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*:before,*:after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+  .skill:hover,.project:hover,.edu:hover,.language:hover,
+  .architecture-card:hover,.insight-card:hover,.case-card:hover,
+  .testimonial-panel:hover,.analytics-card:hover,.writing-card:hover{
+    transform:none!important;
+  }
+}
+@supports not ((backdrop-filter:blur(2px))){
+  .profile-card,.focus,.skill,.project,.edu,.language,
+  .architecture-card,.insight-card,.testimonial-panel,.analytics-card,
+  .case-card,.skills-proof>div,.github-stats a,.github-live,
+  .github-repositories>article,.github-repositories>a,.github-repo,
+  .repo-card,.writing-card,.writing-grid>article,.contact-item,.contact-form{
+    background:rgba(255,255,255,.97)!important;
+  }
+}
