@@ -130,7 +130,7 @@ for page in html_pages:
         fail(f"Duplicate HTML id attributes in {page.relative_to(ROOT)}")
     if page_parser.images_without_alt:
         fail(f"Images missing alt text in {page.relative_to(ROOT)}: " + ", ".join(page_parser.images_without_alt))
-    for href in re.findall(r"href=['\\\"]#([^'\\\"]+)", page.read_text(encoding="utf-8"), re.I):
+    for href in re.findall(r"""href=["']#([^"']+)""", page.read_text(encoding="utf-8"), re.I):
         if href not in page_parser.ids:
             fail(f"Anchor target does not exist in {page.relative_to(ROOT)}: #{href}")
     for tag, raw in page_parser.references:
@@ -171,17 +171,17 @@ except (OSError, ET.ParseError) as exc:
 worker_path = ROOT / "service-worker.js"
 if worker_path.is_file():
     worker = worker_path.read_text(encoding="utf-8")
-    core = re.search(r"const\\s+CORE_ASSETS\\s*=\\s*\\[(.*?)\\]", worker, re.S)
+    core = re.search(r"const\s+CORE_ASSETS\s*=\s*\[(.*?)\]", worker, re.S)
     if not core:
         fail("Service worker CORE_ASSETS list is missing")
     else:
-        for asset in re.findall(r"['\\\"](/[^'\\\"]+)['\\\"]", core.group(1)):
+        for asset in re.findall(r"""["'](/[^"']+)["']""", core.group(1)):
             if not (ROOT / asset.lstrip("/")).is_file():
                 fail(f"Service worker precache asset is missing: {asset}")
 
 for css_name in ("assets/css/portfolio.css", "assets/css/premium.css"):
-    css_path = ROOT / css_name
-    if css_path.is_file():
+        css = re.sub(r"/\*[\s\S]*?\*/", "", css_path.read_text(encoding="utf-8"))
+        css = re.sub(r"""(["']).*?\1""", "", css)
         css = re.sub(r"/\\*[\\s\\S]*?\\*/", "", css_path.read_text(encoding="utf-8"))
         css = re.sub(r"""(['\\\"]).*?\\1""", "", css)
         if css.count("{") != css.count("}"):
