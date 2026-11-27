@@ -38,7 +38,7 @@
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="site-nav" aria-label="Main navigation"><div class="wrap nav-inner"><a class="brand" href="#top" aria-label="D. Solomon home">D<span>.</span>SOLOMON</a><button class="menu" id="menu" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button><ul class="nav-links" id="navLinks"><li><a href="#top">Home</a></li><li><a href="#about" data-i18n="navAbout">About</a></li><li><a href="#skills" data-i18n="navSkills">Skills</a></li><li><a href="#projects" data-i18n="navProjects">Projects</a></li><li><a href="#education">Experience</a></li><li><a href="#contact">Contact</a></li><li><a class="cv-link" href="assets/Dereje_Solomon_CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a></li><li class="nav-utilities"><button class="nav-tool" id="langToggle" type="button" aria-label="Switch language">አ / EN</button><button class="nav-tool" id="themeToggle" type="button" aria-label="Switch color theme">◐ Theme</button><button class="nav-tool" id="installApp" type="button" hidden>Install app</button></li></ul></div></nav>
+<nav class="site-nav" aria-label="Main navigation"><div class="wrap nav-inner"><a class="brand" href="#top" aria-label="D. Solomon home">D<span>.</span>SOLOMON</a><button class="menu" id="menu" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button><ul class="nav-links" id="navLinks"><li><a href="#top">Home</a></li><li><a href="#about" data-i18n="navAbout">About</a></li><li><a href="#skills" data-i18n="navSkills">Skills</a></li><li><a href="#projects" data-i18n="navProjects">Projects</a></li><li><a href="#education">Experience</a></li><li><a href="#contact">Contact</a></li><li><a class="cv-link" href="assets/Dereje_Solomon_CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a></li><li class="nav-close-row"><button class="nav-close" id="navClose" type="button"><span aria-hidden="true">×</span> Close menu</button></li><li class="nav-utilities"><button class="nav-tool" id="langToggle" type="button" aria-label="Switch language">አ / EN</button><button class="nav-tool" id="themeToggle" type="button" aria-label="Switch color theme">◐ Theme</button><button class="nav-tool" id="installApp" type="button" hidden>Install app</button></li></ul></div></nav>
 <main id="main-content" tabindex="-1">
 <div class="wrap hero" id="top">
 <div><div class="eyebrow"><span class="dot"></span> Open to remote opportunities</div><h1>Dereje <span>Solomon</span></h1><p class="hero-position">Software Engineer <span aria-hidden="true">·</span> Full-Stack Developer <span aria-hidden="true">·</span> Technology Enthusiast</p><div class="roles"><span class="role">Full-Stack Development</span><span class="role">Software Engineering</span><span class="role">AI-supported Learning</span></div><p class="lead" data-i18n="heroLead">I’m a fourth-year Computer Science student at Unity University, passionate about building useful software, web applications, and AI-supported learning experiences. I enjoy turning real problems into clear, practical digital solutions.</p><div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><a class="btn secondary" href="assets/Dereje_Solomon_CV.pdf" download>Download CV ↓</a><a class="btn secondary" href="mailto:derejesolomon363@gmail.com">Get in touch</a></div></div>
@@ -171,19 +171,38 @@
 "use strict";
 const menu=document.getElementById("menu");
 const nav=document.getElementById("navLinks");
+const navClose=document.getElementById("navClose");
+const siteNav=document.querySelector(".site-nav");
+function setNavigationOpen(open,{restoreFocus=false}={}){
+  if(!menu||!nav)return;
+  nav.classList.toggle("open",open);
+  menu.setAttribute("aria-expanded",String(open));
+  menu.setAttribute("aria-label",open?"Close navigation":"Open navigation");
+  nav.setAttribute("aria-hidden",String(!open && window.matchMedia("(max-width: 1100px)").matches));
+  if(open){
+    const firstLink=nav.querySelector('a[href^="#"]');
+    if(window.matchMedia("(max-width: 1100px)").matches) firstLink?.focus({preventScroll:true});
+  }else if(restoreFocus && window.matchMedia("(max-width: 1100px)").matches){
+    menu.focus({preventScroll:true});
+  }
+}
 if(menu&&nav){
-  menu.addEventListener("click",()=>{
-    const open=nav.classList.toggle("open");
-    menu.setAttribute("aria-expanded",String(open));
-    menu.setAttribute("aria-label",open?"Close navigation":"Open navigation");
-    
+  menu.setAttribute("aria-expanded","false");
+  nav.classList.remove("open");
+  nav.setAttribute("aria-hidden",String(window.matchMedia("(max-width: 1100px)").matches));
+  menu.addEventListener("click",()=>setNavigationOpen(menu.getAttribute("aria-expanded")!=="true"));
+  navClose?.addEventListener("click",()=>setNavigationOpen(false,{restoreFocus:true}));
+  nav.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener("click",()=>setNavigationOpen(false)));
+  document.addEventListener("pointerdown",event=>{
+    if(menu.getAttribute("aria-expanded")==="true" && siteNav && !siteNav.contains(event.target)) setNavigationOpen(false);
   });
-  nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{
-    nav.classList.remove("open");
-    menu.setAttribute("aria-expanded","false");
-    menu.setAttribute("aria-label","Open navigation");
-    
-  }));
+  document.addEventListener("keydown",event=>{
+    if(event.key==="Escape" && menu.getAttribute("aria-expanded")==="true") setNavigationOpen(false,{restoreFocus:true});
+  });
+  window.matchMedia("(min-width: 1101px)").addEventListener?.("change",event=>{
+    if(event.matches) setNavigationOpen(false);
+    nav.setAttribute("aria-hidden","false");
+  });
 }
 const year=document.getElementById("year");
 if(year) year.textContent=String(new Date().getFullYear());
