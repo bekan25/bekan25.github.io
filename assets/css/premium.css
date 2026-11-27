@@ -2189,3 +2189,26 @@ html[data-theme="dark"] .chip,html[data-theme="dark"] .stack span{background:#19
 html[data-theme="dark"] .skills,html[data-theme="dark"] .education,html[data-theme="dark"] .case-studies,html[data-theme="dark"] .architecture,html[data-theme="dark"] .analytics,html[data-theme="dark"] .insights,html[data-theme="dark"] .testimonials{background:#08251b!important}
 html[data-theme="dark"] .about,html[data-theme="dark"] .projects,html[data-theme="dark"] .languages{background:#061b15!important}
 html[data-theme="dark"] .project-search,html[data-theme="dark"] nav .nav-links,html[data-theme="dark"] nav .menu{background:#0d3024!important;color:#e8f3ec!important;border-color:#285640!important}
+
+/* Interaction states and timeline refinements */
+.reveal-ready{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.reveal-ready.is-visible{opacity:1;transform:translateY(0)}
+.edu-grid{position:relative;grid-template-columns:1fr!important;gap:18px!important;padding-left:30px!important}
+.edu-grid:before{content:"";position:absolute;left:8px;top:12px;bottom:12px;width:2px;background:#c6dfcf}
+.edu{position:relative}
+.edu:before{content:"";position:absolute;left:-30px;top:30px;width:12px;height:12px;border:3px solid #fff;border-radius:50%;background:#10b981;box-shadow:0 0 0 2px #a9cfb7}
+.site-footer{background:#02231d!important;color:#d7e8de!important;padding:54px 0 24px!important}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px}
+.footer-brand .brand{color:#fff!important;font:800 22px Manrope,sans-serif;letter-spacing:-.06em;text-decoration:none}
+.footer-brand .brand span{color:#10b981}
+.footer-brand p{max-width:330px;margin:14px 0 0;color:#b7cfc2;font-size:13px;line-height:1.8}
+.footer-nav,.footer-social{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+.footer-nav strong,.footer-social strong{color:#fff;font:750 13px Manrope,sans-serif;margin-bottom:4px}
+.footer-nav a,.footer-social a{color:#c6ddd0!important;font-size:12px;text-decoration:none}
+.footer-nav a:hover,.footer-social a:hover{color:#8ce5b5!important}
+.footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;gap:16px;align-items:center;padding-top:20px;border-top:1px solid rgba(220,244,229,.16);color:#a9c1b3;font-size:11px}
+.footer-bottom a{color:#8ce5b5!important;text-decoration:none}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr 1fr;gap:26px}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.reveal-ready{opacity:1;transform:none;transition:none}}
+html[data-theme="dark"] .edu-grid:before{background:#326b4e}
+html[data-theme="dark"] .edu:before{border-color:#0d3024}
