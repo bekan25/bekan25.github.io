@@ -166,7 +166,7 @@
 <p class="form-note" id="form-feedback" role="status" aria-live="polite">This static website opens your email or WhatsApp app; it does not silently send or store your message.</p>
 </form><p class="contact-note">Based in Addis Ababa, Ethiopia · Available for remote collaboration.</p></div></section>
 </main>
-<footer><div class="wrap footer-inner"><span>© <span id="year"></span> Dereje Solomon. All rights reserved.</span><span>Designed with care · <a href="#top">Back to top ↑</a></span></div></footer>
+<footer class="site-footer"><div class="wrap footer-grid"><div class="footer-brand"><a class="brand" href="#top">D<span>.</span>SOLOMON</a><p>Software Engineer and Full-Stack Developer building practical digital solutions with purpose.</p></div><div class="footer-nav"><strong>Explore</strong><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Experience & Education</a><a href="#contact">Contact</a></div><div class="footer-social"><strong>Connect</strong><a href="https://github.com/bekan25" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/dereje-solomon-9a6230370" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://t.me/counqer1777" target="_blank" rel="noopener noreferrer">Telegram ↗</a><a href="mailto:derejesolomon363@gmail.com">Email ↗</a></div><div class="footer-bottom"><span>© <span id="year"></span> Dereje Solomon. All rights reserved.</span><a href="#top">Back to top ↑</a></div></div></footer>
 <script>
 "use strict";
 const menu=document.getElementById("menu");
@@ -176,13 +176,13 @@ if(menu&&nav){
     const open=nav.classList.toggle("open");
     menu.setAttribute("aria-expanded",String(open));
     menu.setAttribute("aria-label",open?"Close navigation":"Open navigation");
-    menu.textContent=open?"×":"☰";
+    
   });
   nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{
     nav.classList.remove("open");
     menu.setAttribute("aria-expanded","false");
     menu.setAttribute("aria-label","Open navigation");
-    menu.textContent="☰";
+    
   }));
 }
 const year=document.getElementById("year");
