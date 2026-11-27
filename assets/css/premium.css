@@ -2275,29 +2275,40 @@ html[data-theme="dark"] .about .focus p,html[data-theme="dark"] .about .focus li
 }
 
 
-/* Global section-heading contrast: keep every heading readable on light sections. */
+/* FINAL READABILITY OVERRIDE
+   The Aurora layer gives portfolio sections dark glass backgrounds in both themes.
+   Keep headings and ordinary section copy light; preserve dark text only inside the
+   intentionally light About focus card. */
+.section-title,
+html[data-theme="dark"] .section-title,
 html:not([data-theme="dark"]) .section-title{
-  color:#173b2e!important;
-  -webkit-text-fill-color:#173b2e!important;
-  opacity:1!important;
-  visibility:visible!important;
-  text-shadow:none!important;
-  background:none!important;
+  color:#f4fbf7!important;
+  -webkit-text-fill-color:#f4fbf7!important;
+  opacity:1!important;visibility:visible!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.24)!important;
+  background:none!important;background-image:none!important;
 }
+.section-title span,
+html[data-theme="dark"] .section-title span,
 html:not([data-theme="dark"]) .section-title span{
-  color:#087653!important;
-  -webkit-text-fill-color:#087653!important;
-  background:none!important;
-  background-image:none!important;
-  opacity:1!important;
-  visibility:visible!important;
+  color:#75e6b7!important;
+  -webkit-text-fill-color:#75e6b7!important;
+  background:none!important;background-image:none!important;
+  opacity:1!important;visibility:visible!important;
 }
-/* The dark green hiring panel intentionally keeps its white heading. */
-html:not([data-theme="dark"]) .hire-panel .section-title{
-  color:#ffffff!important;
-  -webkit-text-fill-color:#ffffff!important;
+.about .about-copy p,
+html[data-theme="dark"] .about .about-copy p{
+  color:#d5e7dd!important;
+  -webkit-text-fill-color:#d5e7dd!important;
 }
-html:not([data-theme="dark"]) .hire-panel .section-title span{
-  color:#b8f2d2!important;
-  -webkit-text-fill-color:#b8f2d2!important;
+.about .focus h3{color:#073b2d!important;-webkit-text-fill-color:#073b2d!important}
+.about .focus p,.about .focus li{
+  color:#40574b!important;-webkit-text-fill-color:#40574b!important;
+}
+/* Dark contact and hiring panels use the same high-contrast heading treatment. */
+.contact .section-title,.hire-panel .section-title{
+  color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;
+}
+.contact .section-title span,.hire-panel .section-title span{
+  color:#b8f2d2!important;-webkit-text-fill-color:#b8f2d2!important;
 }
