@@ -210,3 +210,19 @@ const gh=document.querySelector(".github-live-head a");if(gh){gh.href=profile;gh
 const form=document.getElementById("contact-form");
 if(form){const feedback=document.getElementById("form-feedback"),wa=document.getElementById("whatsapp-form-link"),fields=["contact-name","contact-email","contact-subject","contact-message"].map(id=>document.getElementById(id));const data=()=>({name:fields[0].value.trim(),email:fields[1].value.trim(),subject:fields[2].value.trim(),message:fields[3].value.trim()});const valid=()=>fields.every(f=>f&&f.checkValidity());const update=()=>{const d=data();if(wa)wa.href="https://wa.me/251922481727?text="+encodeURIComponent("Hello Dereje,\n\n"+d.message+"\n\nName: "+d.name+"\nEmail: "+d.email+"\nSubject: "+d.subject);};fields.forEach(f=>f.addEventListener("input",update));if(wa)wa.addEventListener("click",e=>{if(!valid()){e.preventDefault();form.reportValidity();if(feedback)feedback.textContent="Please complete all fields correctly before opening WhatsApp.";}});form.addEventListener("submit",e=>{e.preventDefault();if(!valid()){form.reportValidity();return;}const d=data();if(feedback)feedback.textContent="Your email app is opening. Review your message and press Send to deliver it.";location.href="mailto:derejesolomon363@gmail.com?subject="+encodeURIComponent(d.subject+" — Portfolio contact")+"&body="+encodeURIComponent("Name: "+d.name+"\nEmail: "+d.email+"\n\n"+d.message);});}
 })();
+
+/* Active navigation and progressive section reveals. */
+(() => {
+ const navAnchors=[...document.querySelectorAll('#navLinks a[href^="#"]')];
+ const sections=navAnchors.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+ if("IntersectionObserver" in window&&sections.length){
+  const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navAnchors.forEach(a=>{const active=a.getAttribute("href")==="#"+entry.target.id;a.classList.toggle("active",active);if(active)a.setAttribute("aria-current","location");else a.removeAttribute("aria-current");});}}),{rootMargin:"-28% 0px -62% 0px",threshold:0});
+  sections.forEach(section=>io.observe(section));
+ }
+ if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window){
+  const revealTargets=document.querySelectorAll(".skill,.project,.edu,.focus,.contact-item,.case-card,.architecture-card,.insight-card");
+  revealTargets.forEach(el=>el.classList.add("reveal-ready"));
+  const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");revealObserver.unobserve(entry.target);}}),{threshold:.08});
+  revealTargets.forEach(el=>revealObserver.observe(el));
+ }
+})();

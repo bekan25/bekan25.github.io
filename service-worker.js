@@ -1,5 +1,5 @@
 "use strict";
-const CACHE_NAME="dereje-portfolio-shell-v3";
+const CACHE_NAME="dereje-portfolio-shell-v4";
 const CORE_ASSETS=[
   "/",
   "/offline.html",
