@@ -212,7 +212,8 @@ if(form){const feedback=document.getElementById("form-feedback"),wa=document.get
 })();
 
 /* Active navigation and progressive section reveals. */
-(() => {\n const navAnchors=[...document.querySelectorAll('#navLinks a[href^="#"]')];
+(() => {
+ const navAnchors=[...document.querySelectorAll('#navLinks a[href^="#"]')];
  const sections=navAnchors.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
  if("IntersectionObserver" in window&&sections.length){
   const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navAnchors.forEach(a=>{const active=a.getAttribute("href")==="#"+entry.target.id;a.classList.toggle("active",active);if(active)a.setAttribute("aria-current","location");else a.removeAttribute("aria-current");});}}),{rootMargin:"-28% 0px -62% 0px",threshold:0});
