@@ -211,23 +211,7 @@ const form=document.getElementById("contact-form");
 if(form){const feedback=document.getElementById("form-feedback"),wa=document.getElementById("whatsapp-form-link"),fields=["contact-name","contact-email","contact-subject","contact-message"].map(id=>document.getElementById(id));const data=()=>({name:fields[0].value.trim(),email:fields[1].value.trim(),subject:fields[2].value.trim(),message:fields[3].value.trim()});const valid=()=>fields.every(f=>f&&f.checkValidity());const update=()=>{const d=data();if(wa)wa.href="https://wa.me/251922481727?text="+encodeURIComponent("Hello Dereje,\n\n"+d.message+"\n\nName: "+d.name+"\nEmail: "+d.email+"\nSubject: "+d.subject);};fields.forEach(f=>f.addEventListener("input",update));if(wa)wa.addEventListener("click",e=>{if(!valid()){e.preventDefault();form.reportValidity();if(feedback)feedback.textContent="Please complete all fields correctly before opening WhatsApp.";}});form.addEventListener("submit",e=>{e.preventDefault();if(!valid()){form.reportValidity();return;}const d=data();if(feedback)feedback.textContent="Your email app is opening. Review your message and press Send to deliver it.";location.href="mailto:derejesolomon363@gmail.com?subject="+encodeURIComponent(d.subject+" — Portfolio contact")+"&body="+encodeURIComponent("Name: "+d.name+"\nEmail: "+d.email+"\n\n"+d.message);});}
 })();
 
-/* Premium navigation, active-section state, theme preference and reveal motion. */
-(() => {
- const menu=document.getElementById("menu");
- const links=document.getElementById("navLinks");
- const closeMenu=()=>{if(!menu||!links)return;menu.setAttribute("aria-expanded","false");menu.setAttribute("aria-label","Open navigation");links.classList.remove("open");};
- if(menu&&links){
-  menu.addEventListener("click",()=>{const open=menu.getAttribute("aria-expanded")!=="true";menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"Close navigation":"Open navigation");links.classList.toggle("open",open);});
-  links.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));
-  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu();});
-  document.addEventListener("click",e=>{if(!e.target.closest("nav"))closeMenu();});
- }
- const themeButton=document.getElementById("themeToggle");
- let theme="light";try{theme=localStorage.getItem("dereje-theme")||"light";}catch{}
- const applyTheme=value=>{theme=value==="dark"?"dark":"light";document.documentElement.dataset.theme=theme;if(themeButton){themeButton.textContent=theme==="dark"?"☀ Light":"◐ Theme";themeButton.setAttribute("aria-label",theme==="dark"?"Switch to light theme":"Switch to dark theme");}try{localStorage.setItem("dereje-theme",theme);}catch{}};
- applyTheme(theme);
- if(themeButton)themeButton.addEventListener("click",()=>applyTheme(theme==="dark"?"light":"dark"));
- const navAnchors=[...document.querySelectorAll('#navLinks a[href^="#"]')];
+/* Active navigation and progressive section reveals. */\n(() => {\n const navAnchors=[...document.querySelectorAll('#navLinks a[href^="#"]')];
  const sections=navAnchors.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
  if("IntersectionObserver" in window&&sections.length){
   const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navAnchors.forEach(a=>{const active=a.getAttribute("href")==="#"+entry.target.id;a.classList.toggle("active",active);if(active)a.setAttribute("aria-current","location");else a.removeAttribute("aria-current");});}}),{rootMargin:"-28% 0px -62% 0px",threshold:0});
