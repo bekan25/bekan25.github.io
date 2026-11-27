@@ -187,6 +187,24 @@ for css_name in ("assets/css/portfolio.css", "assets/css/premium.css"):
         if css.count("{") != css.count("}"):
             fail(f"Unbalanced CSS braces in {css_name}")
 
+# Regression guards for the canonical responsive navigation and mobile layout.
+premium_css_path = ROOT / "assets/css/premium.css"
+if premium_css_path.is_file():
+    premium_css = premium_css_path.read_text(encoding="utf-8")
+    if "RESPONSIVE NAVIGATION FIX — 2026-11" in premium_css:
+        fail("Obsolete floating navigation CSS block is still present")
+    if ".site-nav .nav-links.open{display:flex!important}" not in premium_css:
+        fail("Canonical mobile navigation open state is missing")
+    if "@media(max-width:1100px)" not in premium_css:
+        fail("Canonical mobile navigation breakpoint is missing")
+    mobile_about = (
+        "@media (max-width: 760px) {" in premium_css
+        and ".about .about-grid {" in premium_css
+        and "grid-template-columns: minmax(0, 1fr) !important;" in premium_css
+    )
+    if not mobile_about:
+        fail("About content must stack into one column on screens up to 760px")
+
 # The contact flow must remain honest and client-side validated.
 if 'id="contact-form"' not in source or 'id="contact-email"' not in source or 'required' not in source:
     fail("Contact form or required-field validation markup is missing")
