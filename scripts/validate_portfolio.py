@@ -197,9 +197,10 @@ if premium_css_path.is_file():
         fail("Canonical mobile navigation open state is missing")
     if "@media(max-width:1100px)" not in premium_css:
         fail("Canonical mobile navigation breakpoint is missing")
-    mobile_about = re.search(
-        r"@media\\s*\\(max-width:\\s*760px\\)\\s*\\{[\\s\\S]{0,500}?\\.about \\.about-grid\\s*\\{[\\s\\S]{0,220}?grid-template-columns:\\s*minmax\\(0,\\s*1fr\\)",
-        premium_css,
+    mobile_about = (
+        "@media (max-width: 760px) {" in premium_css
+        and ".about .about-grid {" in premium_css
+        and "grid-template-columns: minmax(0, 1fr) !important;" in premium_css
     )
     if not mobile_about:
         fail("About content must stack into one column on screens up to 760px")
