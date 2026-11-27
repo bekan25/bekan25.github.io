@@ -180,10 +180,10 @@ if worker_path.is_file():
                 fail(f"Service worker precache asset is missing: {asset}")
 
 for css_name in ("assets/css/portfolio.css", "assets/css/premium.css"):
+    css_path = ROOT / css_name
+    if css_path.is_file():
         css = re.sub(r"/\*[\s\S]*?\*/", "", css_path.read_text(encoding="utf-8"))
         css = re.sub(r"""(["']).*?\1""", "", css)
-        css = re.sub(r"/\\*[\\s\\S]*?\\*/", "", css_path.read_text(encoding="utf-8"))
-        css = re.sub(r"""(['\\\"]).*?\\1""", "", css)
         if css.count("{") != css.count("}"):
             fail(f"Unbalanced CSS braces in {css_name}")
 
